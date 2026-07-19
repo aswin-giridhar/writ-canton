@@ -1,0 +1,217 @@
+-- | Writ — mandate enforcement tests.
+--
+-- Each `submitMustFail` below is an attack the ledger refuses. They are the
+-- evidence behind the project's central claim: these rejections do not
+-- depend on the agent cooperating. The agent in these tests is submitting
+-- the transaction itself and still cannot get past validation.
+module Writ.Tests where
+
+import Daml.Script
+import DA.Time (addRelTime, days, hours)
+import DA.Assert ((===))
+import Writ.Mandate
+
+-- | Parties and a standing mandate used across the tests.
+data Setup = Setup with
+  principal : Party
+  agent : Party
+  supplierA : Party
+  supplierB : Party
+  rogue : Party
+  mandateCid : ContractId Mandate
+
+-- | Principal issues the agent a $50,000 mandate: $10,000 per transaction,
+-- reserve price $45/unit, and only SupplierA and SupplierB are in scope.
+setup : Script Setup
+setup = do
+  principal <- allocateParty "Principal"
+  agent <- allocateParty "ProcurementAgent"
+  supplierA <- allocateParty "SupplierA"
+  supplierB <- allocateParty "SupplierB"
+  rogue <- allocateParty "RogueSupplier"
+
+  now <- getTime
+
+  mandateCid <- submit principal do
+    createCmd Mandate with
+      principal
+      agent
+      purpose = "Q3 industrial widget procurement"
+      maxTotalSpend = 50000.0
+      perTxCap = 10000.0
+      reservePrice = 45.0
+      allowedCounterparties = [supplierA, supplierB]
+      expiry = addRelTime now (days 30)
+      spentToDate = 0.0
+
+  pure Setup with ..
+
+-- | Helper: a supplier publishes a quote.
+quoteFrom : Party -> Setup -> Int -> Decimal -> Script (ContractId Quote)
+quoteFrom supplier Setup{..} quantity unitPrice = do
+  now <- getTime
+  submit supplier do
+    createCmd Quote with
+      counterparty = supplier
+      principal
+      agent
+      item = "industrial widget"
+      quantity
+      unitPrice
+      validUntil = addRelTime now (hours 24)
+
+-- | Spend $9,000 against the mandate `n` times in sequence, threading the
+-- freshly created mandate contract id through each round.
+spendTimes : Int -> ContractId Mandate -> Setup -> Script (ContractId Mandate)
+spendTimes n cid s =
+  if n <= 0
+    then pure cid
+    else do
+      q <- quoteFrom s.supplierA s 225 40.0  -- $9,000
+      (nextCid, _) <- submit s.agent do
+        exerciseCmd cid Commit with quoteCid = q
+      spendTimes (n - 1) nextCid s
+
+-- | Happy path: a quote inside every bound settles, and the mandate's
+-- spend is updated atomically with the deal.
+testWithinMandate : Script ()
+testWithinMandate = do
+  s@Setup{..} <- setup
+  q <- quoteFrom supplierA s 200 42.0  -- 200 * 42 = $8,400
+
+  (newMandateCid, dealCid) <- submit agent do
+    exerciseCmd mandateCid Commit with quoteCid = q
+
+  Some deal <- queryContractId principal dealCid
+  deal.amount === 8400.0
+
+  Some m <- queryContractId principal newMandateCid
+  m.spentToDate === 8400.0
+
+-- | Over the per-transaction cap. 300 * 40 = $12,000 > $10,000.
+testExceedsPerTxCap : Script ()
+testExceedsPerTxCap = do
+  s@Setup{..} <- setup
+  q <- quoteFrom supplierA s 300 40.0
+
+  submitMustFail agent do
+    exerciseCmd mandateCid Commit with quoteCid = q
+
+-- | Above the reserve price. $50/unit > $45/unit, even though the total
+-- ($5,000) sits comfortably under the per-transaction cap. This is the
+-- bound the counterparty cannot see and therefore cannot price against.
+testAboveReservePrice : Script ()
+testAboveReservePrice = do
+  s@Setup{..} <- setup
+  q <- quoteFrom supplierA s 100 50.0
+
+  submitMustFail agent do
+    exerciseCmd mandateCid Commit with quoteCid = q
+
+-- | Counterparty not on the allowlist.
+testCounterpartyNotAllowed : Script ()
+testCounterpartyNotAllowed = do
+  s@Setup{..} <- setup
+  q <- quoteFrom rogue s 100 40.0
+
+  submitMustFail agent do
+    exerciseCmd mandateCid Commit with quoteCid = q
+
+-- | Cumulative spend. Five transactions of $9,000 succeed ($45,000); the
+-- sixth would reach $54,000 and is refused. Each one individually respects
+-- the per-transaction cap — only the running total catches it.
+testCumulativeLimit : Script ()
+testCumulativeLimit = do
+  s@Setup{..} <- setup
+
+  finalCid <- spendTimes 5 mandateCid s
+
+  Some m <- queryContractId principal finalCid
+  m.spentToDate === 45000.0
+
+  q6 <- quoteFrom supplierA s 225 40.0
+  submitMustFail agent do
+    exerciseCmd finalCid Commit with quoteCid = q6
+
+-- | An expired mandate authorises nothing.
+testExpiredMandate : Script ()
+testExpiredMandate = do
+  principal <- allocateParty "Principal"
+  agent <- allocateParty "ProcurementAgent"
+  supplierA <- allocateParty "SupplierA"
+  now <- getTime
+
+  expiredCid <- submit principal do
+    createCmd Mandate with
+      principal
+      agent
+      purpose = "lapsed mandate"
+      maxTotalSpend = 50000.0
+      perTxCap = 10000.0
+      reservePrice = 45.0
+      allowedCounterparties = [supplierA]
+      expiry = addRelTime now (days (-1))
+      spentToDate = 0.0
+
+  q <- submit supplierA do
+    createCmd Quote with
+      counterparty = supplierA
+      principal
+      agent
+      item = "industrial widget"
+      quantity = 100
+      unitPrice = 40.0
+      validUntil = addRelTime now (hours 24)
+
+  submitMustFail agent do
+    exerciseCmd expiredCid Commit with quoteCid = q
+
+-- | A revoked mandate is gone. Authority can always be pulled back.
+testRevoke : Script ()
+testRevoke = do
+  s@Setup{..} <- setup
+  submit principal do exerciseCmd mandateCid Revoke
+
+  q <- quoteFrom supplierA s 100 40.0
+  submitMustFail agent do
+    exerciseCmd mandateCid Commit with quoteCid = q
+
+-- | Privacy. The suppliers cannot see the mandate at all — not the reserve
+-- price, not the remaining budget, not the allowlist they appear on. The
+-- principal and agent can. This is Canton's sub-transaction privacy doing
+-- the work; nothing is encrypted, the contract simply is not distributed
+-- to a participant that is not a stakeholder.
+testCounterpartyCannotSeeMandate : Script ()
+testCounterpartyCannotSeeMandate = do
+  Setup{..} <- setup
+
+  supplierAView <- query @Mandate supplierA
+  supplierBView <- query @Mandate supplierB
+  rogueView <- query @Mandate rogue
+  principalView <- query @Mandate principal
+  agentView <- query @Mandate agent
+
+  length supplierAView === 0
+  length supplierBView === 0
+  length rogueView === 0
+  length principalView === 1
+  length agentView === 1
+
+-- | After settlement the supplier sees its own deal but still not the
+-- mandate behind it. It learns what it sold, never what it could have
+-- charged.
+testSupplierSeesDealNotMandate : Script ()
+testSupplierSeesDealNotMandate = do
+  s@Setup{..} <- setup
+  q <- quoteFrom supplierA s 200 42.0
+
+  _ <- submit agent do exerciseCmd mandateCid Commit with quoteCid = q
+
+  supplierDeals <- query @Deal supplierA
+  supplierMandates <- query @Mandate supplierA
+  otherSupplierDeals <- query @Deal supplierB
+
+  length supplierDeals === 1
+  length supplierMandates === 0
+  -- SupplierB was not party to the trade and sees nothing of it.
+  length otherSupplierDeals === 0

@@ -1,0 +1,14 @@
+# Writ — tests for the mandate model.
+#
+# Separate package so `daml-script` is never uploaded to the shared Devnet
+# validator. Depends on the built model DAR, so build ../mandate-model first.
+sdk-version: 3.4.11
+name: mandate-test
+source: daml
+version: 0.1.0
+dependencies:
+  - daml-prim
+  - daml-stdlib
+  - daml-script
+data-dependencies:
+  - ../mandate-model/.daml/dist/mandate-model-0.1.0.dar

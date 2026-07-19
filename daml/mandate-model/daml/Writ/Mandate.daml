@@ -1,0 +1,150 @@
+-- | Writ — ledger-enforced authority for autonomous agents.
+--
+-- The thesis of this package fits in one sentence: an agent's spending
+-- authority should be a contract, not a prompt.
+--
+-- A `Mandate` is an authority envelope issued by a principal to an agent.
+-- The agent is the *controller* of the spending choice but not a
+-- *signatory* of the mandate: it wields authority it cannot rewrite.
+-- Bounds are checked by the participant node at submission time, so a
+-- fully compromised agent — jailbroken, prompt-injected, running
+-- arbitrary code — still cannot produce a valid transaction outside its
+-- envelope. Rejection does not depend on the agent behaving.
+module Writ.Mandate where
+
+-- | A settled purchase. Signed by principal and counterparty.
+--
+-- The agent is an observer, not a signatory: it brokered the deal but is
+-- not a party to it. That distinction is the point of the whole design.
+template Deal
+  with
+    principal : Party
+    counterparty : Party
+    agent : Party
+    item : Text
+    quantity : Int
+    unitPrice : Decimal
+    amount : Decimal
+    settledAt : Time
+  where
+    signatory principal, counterparty
+    observer agent
+
+-- | An offer from a counterparty.
+--
+-- Note who is absent: the counterparty never becomes an observer of the
+-- `Mandate`, so it cannot see the principal's reserve price or remaining
+-- budget. It quotes blind. On a transparent ledger a supplier who can
+-- read your maximum will always charge exactly that.
+template Quote
+  with
+    counterparty : Party
+    principal : Party
+    agent : Party
+    item : Text
+    quantity : Int
+    unitPrice : Decimal
+    validUntil : Time
+  where
+    signatory counterparty
+    observer principal, agent
+
+    ensure quantity > 0 && unitPrice > 0.0
+
+    -- | Convert the quote into a settled deal.
+    --
+    -- Controlled by `principal`, but in practice never exercised directly
+    -- by them: it is reached from inside `Mandate.Commit`, where the
+    -- agent holds delegated principal authority. That indirection is what
+    -- lets a `Deal` carry both signatures while the agent does the acting.
+    choice Accept : ContractId Deal
+      with settledAt : Time
+      controller principal
+      do
+        create Deal with
+          principal
+          counterparty
+          agent
+          item
+          quantity
+          unitPrice
+          amount = intToDecimal quantity * unitPrice
+          settledAt
+
+-- | The authority envelope.
+--
+-- Visible to the principal and the agent, and to nobody else. The
+-- counterparty is deliberately not an observer — that omission is the
+-- privacy mechanism, not an oversight.
+template Mandate
+  with
+    principal : Party
+    agent : Party
+    purpose : Text
+    -- | Total the agent may spend across the life of the mandate.
+    maxTotalSpend : Decimal
+    -- | Ceiling on any single transaction.
+    perTxCap : Decimal
+    -- | Highest unit price the agent may accept. Private to principal and
+    -- agent: this is the number a counterparty would most like to know.
+    reservePrice : Decimal
+    -- | Counterparties the agent is permitted to deal with.
+    allowedCounterparties : [Party]
+    expiry : Time
+    spentToDate : Decimal
+  where
+    signatory principal
+    observer agent
+
+    ensure maxTotalSpend > 0.0
+        && perTxCap > 0.0
+        && perTxCap <= maxTotalSpend
+        && reservePrice > 0.0
+        && spentToDate >= 0.0
+        && spentToDate <= maxTotalSpend
+
+    -- | Remaining headroom under the mandate.
+    nonconsuming choice Remaining : Decimal
+      controller agent
+      do pure (maxTotalSpend - spentToDate)
+
+    -- | Spend against the mandate.
+    --
+    -- Every bound is asserted here. This is the security boundary: the
+    -- checks run on the participant node during validation, not inside
+    -- the agent, so no amount of adversarial input to the agent can skip
+    -- them. Atomic — the mandate update and the deal commit together or
+    -- not at all.
+    choice Commit : (ContractId Mandate, ContractId Deal)
+      with quoteCid : ContractId Quote
+      controller agent
+      do
+        now <- getTime
+        q <- fetch quoteCid
+
+        let amount = intToDecimal q.quantity * q.unitPrice
+
+        assertMsg "mandate expired"
+          (now < expiry)
+        assertMsg "quote expired"
+          (now < q.validUntil)
+        assertMsg "quote does not belong to this mandate"
+          (q.principal == principal && q.agent == agent)
+        assertMsg ("counterparty not on allowlist: " <> show q.counterparty)
+          (q.counterparty `elem` allowedCounterparties)
+        assertMsg ("unit price " <> show q.unitPrice <> " exceeds reserve price " <> show reservePrice)
+          (q.unitPrice <= reservePrice)
+        assertMsg ("amount " <> show amount <> " exceeds per-transaction cap " <> show perTxCap)
+          (amount <= perTxCap)
+        assertMsg ("amount " <> show amount <> " exceeds remaining mandate " <> show (maxTotalSpend - spentToDate))
+          (spentToDate + amount <= maxTotalSpend)
+
+        dealCid <- exercise quoteCid Accept with settledAt = now
+        mandateCid <- create this with spentToDate = spentToDate + amount
+
+        pure (mandateCid, dealCid)
+
+    -- | Revoke the mandate. The principal can always pull authority back.
+    choice Revoke : ()
+      controller principal
+      do pure ()

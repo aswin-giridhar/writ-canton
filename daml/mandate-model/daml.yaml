@@ -1,0 +1,13 @@
+# Writ — mandate model.
+#
+# Templates ONLY. This is the DAR uploaded to the Canton Devnet validator.
+# `daml-script` is deliberately absent: uploading it would also upload the
+# script library and bloat the package store on a validator shared with
+# other teams. Tests live in ../mandate-test.
+sdk-version: 3.4.11
+name: mandate-model
+source: daml
+version: 0.1.0
+dependencies:
+  - daml-prim
+  - daml-stdlib
