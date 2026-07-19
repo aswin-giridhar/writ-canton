@@ -1,0 +1,1006 @@
+- generic [ref=f3e2]:
+  - generic [ref=f3e3]:
+    - link "Skip to content" [ref=f3e4] [cursor=pointer]:
+      - /url: "#start-of-content"
+    - banner [ref=f3e6]:
+      - heading "Navigation Menu" [level=2] [ref=f3e7]
+      - generic [ref=f3e9]:
+        - button "Toggle navigation" [ref=f3e11] [cursor=pointer]
+        - link "Homepage" [ref=f3e17] [cursor=pointer]:
+          - /url: /
+        - generic [ref=f3e20]:
+          - link "Sign in" [ref=f3e21] [cursor=pointer]:
+            - /url: /login?return_to=https%3A%2F%2Fgithub.com%2FJatinp26%2FSeaport-Guide
+          - button "Appearance settings" [ref=f3e24] [cursor=pointer]
+  - main [ref=f3e28]:
+    - generic [ref=f3e29]:
+      - generic [ref=f3e30]:
+        - generic [ref=f3e32]:
+          - link "Jatinp26" [ref=f3e36] [cursor=pointer]:
+            - /url: /Jatinp26
+          - generic [ref=f3e37]: /
+          - strong [ref=f3e38]:
+            - link "Seaport-Guide" [ref=f3e39] [cursor=pointer]:
+              - /url: /Jatinp26/Seaport-Guide
+          - generic [ref=f3e40]: Public
+        - generic [ref=f3e41]:
+          - list:
+            - listitem [ref=f3e42]:
+              - link "You must be signed in to change notification settings" [ref=f3e43] [cursor=pointer]:
+                - /url: /login?return_to=%2FJatinp26%2FSeaport-Guide
+                - text: Notifications
+            - listitem [ref=f3e46]:
+              - link "Fork 2" [ref=f3e47] [cursor=pointer]:
+                - /url: /login?return_to=%2FJatinp26%2FSeaport-Guide
+                - text: Fork
+                - generic "2" [ref=f3e50]
+            - listitem [ref=f3e51]:
+              - link "You must be signed in to star a repository" [ref=f3e53] [cursor=pointer]:
+                - /url: /login?return_to=%2FJatinp26%2FSeaport-Guide
+                - text: Star
+                - generic "6 users starred this repository" [ref=f3e56]: "6"
+      - navigation "Repository" [ref=f3e57]:
+        - list [ref=f3e58]:
+          - listitem [ref=f3e59]:
+            - link "Code" [ref=f3e60] [cursor=pointer]:
+              - /url: /Jatinp26/Seaport-Guide
+          - listitem [ref=f3e64]:
+            - link "Issues" [ref=f3e65] [cursor=pointer]:
+              - /url: /Jatinp26/Seaport-Guide/issues
+          - listitem [ref=f3e70]:
+            - link "Pull requests" [ref=f3e71] [cursor=pointer]:
+              - /url: /Jatinp26/Seaport-Guide/pulls
+          - listitem [ref=f3e75]:
+            - link "Actions" [ref=f3e76] [cursor=pointer]:
+              - /url: /Jatinp26/Seaport-Guide/actions
+          - listitem [ref=f3e80]:
+            - link "Projects" [ref=f3e81] [cursor=pointer]:
+              - /url: /Jatinp26/Seaport-Guide/projects
+          - listitem [ref=f3e85]:
+            - link "Security and quality" [ref=f3e86] [cursor=pointer]:
+              - /url: /Jatinp26/Seaport-Guide/security
+          - listitem [ref=f3e90]:
+            - link "Insights" [ref=f3e91] [cursor=pointer]:
+              - /url: /Jatinp26/Seaport-Guide/pulse
+    - generic [ref=f3e107]:
+      - heading "Jatinp26/Seaport-Guide" [level=1] [ref=f3e109]
+      - generic [ref=f3e110]:
+        - generic [ref=f3e113]:
+          - generic [ref=f3e114]:
+            - generic [ref=f3e115]:
+              - button "main branch" [ref=f3e117] [cursor=pointer]:
+                - generic [ref=f3e118]: main
+              - generic [ref=f3e126]:
+                - link "Go to Branches page" [ref=f3e127] [cursor=pointer]:
+                  - /url: /Jatinp26/Seaport-Guide/branches
+                - link "Go to Tags page" [ref=f3e130] [cursor=pointer]:
+                  - /url: /Jatinp26/Seaport-Guide/tags
+            - generic [ref=f3e133]:
+              - button "Go to file" [ref=f3e136] [cursor=pointer]
+              - button "Code" [ref=f3e139] [cursor=pointer]
+          - generic [ref=f3e142]:
+            - generic [ref=f3e143]:
+              - heading "Folders and files" [level=2] [ref=f3e144]
+              - table "Folders and files" [ref=f3e145]:
+                - rowgroup:
+                  - row "Name Last commit message Last commit date":
+                    - columnheader "Name"
+                    - columnheader "Last commit message"
+                    - columnheader "Last commit date"
+                - rowgroup [ref=f3e146]:
+                  - row [ref=f3e147]:
+                    - cell "Latest commit Jatinp26 commits by Jatinp26 Update DevNet wallet creation instructions Open commit details Commit 35adfe1 · Jun 10, 2026last month History View commit history for this file." [ref=f3e148]:
+                      - generic [ref=f3e149]:
+                        - heading "Latest commit" [level=2] [ref=f3e150]
+                        - generic [ref=f3e151]:
+                          - generic [ref=f3e153]:
+                            - link [ref=f3e154] [cursor=pointer]:
+                              - /url: /Jatinp26
+                              - img "Jatinp26" [ref=f3e155]
+                            - link "commits by Jatinp26" [ref=f3e156] [cursor=pointer]:
+                              - /url: /Jatinp26/Seaport-Guide/commits?author=Jatinp26
+                              - text: Jatinp26
+                          - generic [ref=f3e157]:
+                            - link "Update DevNet wallet creation instructions" [ref=f3e160] [cursor=pointer]:
+                              - /url: /Jatinp26/Seaport-Guide/commit/35adfe1fec0f8a7fb2520b6f054ec3b2fb3166db
+                            - button "Open commit details" [ref=f3e161] [cursor=pointer]
+                        - generic [ref=f3e164]:
+                          - generic [ref=f3e166]:
+                            - link "Commit 35adfe1" [ref=f3e167] [cursor=pointer]:
+                              - /url: /Jatinp26/Seaport-Guide/commit/35adfe1fec0f8a7fb2520b6f054ec3b2fb3166db
+                              - text: 35adfe1
+                            - text: ·
+                            - generic "Jun 10, 2026, 9:01 PM GMT+1" [ref=f3e168]: Jun 10, 2026last month
+                          - generic [ref=f3e169]:
+                            - heading "History" [level=2] [ref=f3e170]
+                            - link "View commit history for this file." [ref=f3e172] [cursor=pointer]:
+                              - /url: /Jatinp26/Seaport-Guide/commits/main/
+                  - row [ref=f3e174]:
+                    - cell [ref=f3e175]:
+                      - link "Readme.md, (File)" [ref=f3e182] [cursor=pointer]:
+                        - /url: /Jatinp26/Seaport-Guide/blob/main/Readme.md
+                        - text: Readme.md
+                    - cell [ref=f3e183]:
+                      - link "Update DevNet wallet creation instructions" [ref=f3e186] [cursor=pointer]:
+                        - /url: /Jatinp26/Seaport-Guide/commit/35adfe1fec0f8a7fb2520b6f054ec3b2fb3166db
+                    - cell "Jun 10, 2026last month" [ref=f3e187]
+            - generic [ref=f3e190]:
+              - generic [ref=f3e191]:
+                - heading "Repository files navigation" [level=2] [ref=f3e192]
+                - navigation "Repository files" [ref=f3e193]:
+                  - list [ref=f3e194]:
+                    - listitem [ref=f3e195]:
+                      - link "README" [ref=f3e196] [cursor=pointer]:
+                        - /url: "#"
+                - button "Outline" [ref=f3e198] [cursor=pointer]
+              - article [ref=f3e202]:
+                - generic [ref=f3e203]:
+                  - heading "Canton Builders Seaport Guide" [level=1] [ref=f3e204]
+                  - 'link "Permalink: Canton Builders Seaport Guide" [ref=f3e205] [cursor=pointer]':
+                    - /url: "#canton-builders-seaport-guide"
+                - paragraph [ref=f3e208]: No validator setup. No IP allowlisting.
+                - blockquote [ref=f3e209]:
+                  - paragraph [ref=f3e210]:
+                    - strong [ref=f3e211]: Seaport URL
+                    - text: ":"
+                    - link "https://app.devnet.seaport.to" [ref=f3e212] [cursor=pointer]:
+                      - /url: https://app.devnet.seaport.to
+                - paragraph [ref=f3e213]:
+                  - text: This guide walks you through the entire Seaport workflow from getting your DevNet wallet and setting up the Daml SDK, to writing, building, deploying, and exercising contracts on the 5N Seaport shared
+                  - code [ref=f3e214]: 5n sandbox
+                  - text: validator.
+                - generic [ref=f3e215]:
+                  - heading "Who is this guide for?" [level=2] [ref=f3e216]
+                  - 'link "Permalink: Who is this guide for?" [ref=f3e217] [cursor=pointer]':
+                    - /url: "#who-is-this-guide-for"
+                - paragraph [ref=f3e220]: "This guide is for new users getting started with Seaport. Before you create, build, or deploy anything, it's important to understand how access works: Seaport supports both personal and organization modes, and your current URL determines which mode you're using."
+                - generic [ref=f3e221]:
+                  - heading "The two modes" [level=3] [ref=f3e222]
+                  - 'link "Permalink: The two modes" [ref=f3e223] [cursor=pointer]':
+                    - /url: "#the-two-modes"
+                - table [ref=f3e227]:
+                  - rowgroup [ref=f3e228]:
+                    - row [ref=f3e229]:
+                      - columnheader "Mode" [ref=f3e230]
+                      - columnheader "What it is" [ref=f3e231]
+                      - columnheader "What lives in it" [ref=f3e232]
+                  - rowgroup [ref=f3e233]:
+                    - row [ref=f3e234]:
+                      - cell [ref=f3e235]:
+                        - strong [ref=f3e236]: Personal mode
+                      - 'cell "Your private workspace, tied to your account. Always available: it is yours the moment you sign in." [ref=f3e237]'
+                      - cell "Your personal projects, your personal validator configurations, and any contracts you create on those validators." [ref=f3e238]
+                    - row [ref=f3e239]:
+                      - cell [ref=f3e240]:
+                        - strong [ref=f3e241]: Org mode
+                      - cell [ref=f3e242]:
+                        - text: A shared workspace owned by a specific
+                        - strong [ref=f3e243]: organization (org)
+                        - text: . YOU'LL USE IT FOR THE HACKATHON TO DEPLOY AND BUILD PROJECT, You can only enter it once an org admin has added you.
+                      - cell "You'll be able to deploy to that org's validator." [ref=f3e244]
+                - paragraph [ref=f3e245]:
+                  - text: "In both modes you can do the same things: Create Projects, Write Daml, Build, Deploy, Create contracts, exercise choices. The difference is"
+                  - strong [ref=f3e246]: which validator you deploy to
+                  - text: ":"
+                - blockquote [ref=f3e247]:
+                  - paragraph [ref=f3e248]:
+                    - strong [ref=f3e249]: "For hackathon builders:"
+                    - text: Once you are in, you will see a shared validator called
+                    - strong [ref=f3e250]:
+                      - code [ref=f3e251]: 5n sandbox
+                    - text: already configured for your org, no setup required.
+                - generic [ref=f3e252]:
+                  - heading "What is Seaport?" [level=2] [ref=f3e253]
+                  - 'link "Permalink: What is Seaport?" [ref=f3e254] [cursor=pointer]':
+                    - /url: "#what-is-seaport"
+                - paragraph [ref=f3e257]: "Seaport is a web-based workspace for writing, building, and deploying smart contracts on the Canton Network. It lets you:"
+                - list [ref=f3e258]:
+                  - listitem [ref=f3e259]:
+                    - strong [ref=f3e260]: Create projects
+                    - text: to organise your contract code
+                  - listitem [ref=f3e261]:
+                    - strong [ref=f3e262]: Write and edit
+                    - text: Daml smart contracts directly in your browser
+                  - listitem [ref=f3e263]:
+                    - strong [ref=f3e264]: Build
+                    - text: your contracts into deployable packages (DAR files)
+                  - listitem [ref=f3e265]:
+                    - strong [ref=f3e266]: Deploy
+                    - text: packages to a Canton validator
+                  - listitem [ref=f3e267]:
+                    - strong [ref=f3e268]: Create live contracts
+                    - text: from deployed packages
+                  - listitem [ref=f3e269]:
+                    - strong [ref=f3e270]: Interact with contracts
+                    - text: by exercising choices (actions defined in your smart contract templates)
+                - generic [ref=f3e271]:
+                  - 'heading "Step 1: Get Your DevNet Wallet" [level=2] [ref=f3e272]'
+                  - 'link "Permalink: Step 1: Get Your DevNet Wallet" [ref=f3e273] [cursor=pointer]':
+                    - /url: "#step-1-get-your-devnet-wallet"
+                - paragraph [ref=f3e276]:
+                  - text: Before logging into Seaport, you need a DevNet wallet. Go to
+                  - strong [ref=f3e277]:
+                    - link "https://devnet.cantonloop.com" [ref=f3e278] [cursor=pointer]:
+                      - /url: https://devnet.cantonloop.com
+                  - text: to create your loop wallet.
+                - blockquote [ref=f3e279]:
+                  - paragraph [ref=f3e280]:
+                    - text: Once set up, copy your
+                    - strong [ref=f3e281]: Party ID
+                    - text: from your wallet profile (looks like
+                    - code [ref=f3e282]: abc123::122...34a
+                    - text: ).
+                    - strong [ref=f3e283]: Save your Party ID
+                    - text: as your organizer needs it to add you to the right team in Seaport.
+                - generic [ref=f3e284]:
+                  - 'heading "Step 2: Log Into Seaport" [level=2] [ref=f3e285]'
+                  - 'link "Permalink: Step 2: Log Into Seaport" [ref=f3e286] [cursor=pointer]':
+                    - /url: "#step-2-log-into-seaport"
+                - list [ref=f3e289]:
+                  - listitem [ref=f3e290]:
+                    - text: Go to
+                    - strong [ref=f3e291]:
+                      - link "https://app.devnet.seaport.to" [ref=f3e292] [cursor=pointer]:
+                        - /url: https://app.devnet.seaport.to
+                  - listitem [ref=f3e293]: Log in with your Loop DevNet wallet.
+                  - listitem [ref=f3e294]:
+                    - text: Find your hackathon org in the sidebar → navigate to
+                    - strong [ref=f3e295]: Teams
+                    - text: → find your team.
+                - generic [ref=f3e296]:
+                  - heading "Inside your team you'll see:" [level=4] [ref=f3e297]
+                  - 'link "Permalink: Inside your team you''ll see:" [ref=f3e298] [cursor=pointer]':
+                    - /url: "#inside-your-team-youll-see"
+                - list [ref=f3e301]:
+                  - listitem [ref=f3e302]:
+                    - strong [ref=f3e303]: Members
+                    - text: — your teammates
+                  - listitem [ref=f3e304]:
+                    - strong [ref=f3e305]: Projects
+                    - text: — where your Daml projects live after upload
+                  - listitem [ref=f3e306]:
+                    - text: The shared
+                    - strong [ref=f3e307]:
+                      - code [ref=f3e308]: 5n sandbox
+                    - text: named DevNet validator, it's available to all teams automatically
+                - blockquote [ref=f3e309]:
+                  - paragraph [ref=f3e310]:
+                    - strong [ref=f3e311]: Don't see your org?
+                    - text: Your organizer needs to add your Party ID first. Contact them and they'll sort it.
+                - generic [ref=f3e312]:
+                  - 'heading "Step 3: Choose your mode" [level=2] [ref=f3e313]'
+                  - 'link "Permalink: Step 3: Choose your mode" [ref=f3e314] [cursor=pointer]':
+                    - /url: "#step-3-choose-your-mode"
+                - blockquote [ref=f3e317]:
+                  - paragraph [ref=f3e318]:
+                    - strong [ref=f3e319]: Do this step before you create any projects, build, or deploy.
+                - generic [ref=f3e320]:
+                  - heading "The org switcher" [level=3] [ref=f3e321]
+                  - 'link "Permalink: The org switcher" [ref=f3e322] [cursor=pointer]':
+                    - /url: "#the-org-switcher"
+                - paragraph [ref=f3e325]:
+                  - text: The org switcher is the small button in the
+                  - strong [ref=f3e326]: top-left of the navigation bar
+                  - text: ", next to the Seaport logo. It shows your current mode (e.g. \"Personal\" or the name of the org you are in(Should be Hackathon Name). Click it to open a dropdown with three sections:"
+                - list [ref=f3e327]:
+                  - listitem [ref=f3e328]:
+                    - strong [ref=f3e329]: Account
+                    - text: →
+                    - strong [ref=f3e330]: Personal
+                    - text: (enter Personal mode)
+                  - listitem [ref=f3e331]:
+                    - strong [ref=f3e332]: Organizations
+                    - text: → every org you belong to (enter that org's mode)
+                  - listitem [ref=f3e333]:
+                    - text: A footer with
+                    - strong [ref=f3e334]: Manage organizations
+                    - text: and
+                    - strong [ref=f3e335]: Create organization
+                    - text: buttons
+                - paragraph [ref=f3e336]: Click an item to switch. The whole app re-scopes to that mode — your project list, the validators you can deploy to, and the members you can invite all change.
+                - blockquote [ref=f3e337]:
+                  - paragraph [ref=f3e338]:
+                    - strong [ref=f3e339]: Tip — tabs are scoped.
+                    - text: A project opened in a tab stays in whichever mode (Personal or a specific org) you opened it from. Switching the org switcher in the top bar does
+                    - emphasis [ref=f3e340]: not
+                    - text: move a project. If you started a project in Personal mode and want it in your hackathon team, use
+                    - link "Step 12 — Transfer Project Ownership" [ref=f3e341] [cursor=pointer]:
+                      - /url: "#step-12-transfer-project-ownership"
+                    - text: .
+                - generic [ref=f3e342]:
+                  - heading "How do I get added to an org?" [level=3] [ref=f3e343]
+                  - 'link "Permalink: How do I get added to an org?" [ref=f3e344] [cursor=pointer]':
+                    - /url: "#how-do-i-get-added-to-an-org"
+                - paragraph [ref=f3e347]:
+                  - text: There is no "join" button — an org admin
+                  - strong [ref=f3e348]: invites you by your Canton party ID
+                  - text: ":"
+                - list [ref=f3e349]:
+                  - listitem [ref=f3e350]:
+                    - text: An org admin opens the org's
+                    - strong [ref=f3e351]: Members
+                    - text: tab and clicks
+                    - strong [ref=f3e352]: Invite
+                    - text: .
+                  - listitem [ref=f3e353]:
+                    - text: They paste in your
+                    - strong [ref=f3e354]: party ID
+                    - text: (the same one your wallet uses to sign in).
+                  - listitem [ref=f3e355]:
+                    - text: If you have already signed in once, the invite is applied
+                    - strong [ref=f3e356]: immediately
+                    - text: to your account.
+                  - listitem [ref=f3e357]:
+                    - text: If you have not signed in yet, the invite is held as a
+                    - strong [ref=f3e358]: pending invite
+                    - text: and is applied the first time you sign in.
+                - paragraph [ref=f3e359]: Once added, the org appears in your org switcher automatically.
+                - blockquote [ref=f3e360]:
+                  - paragraph [ref=f3e361]:
+                    - strong [ref=f3e362]: "For hackathon builders:"
+                    - text: this is the step your organizer handles for you — give them your Party ID from Step 1 and they will add you to your team's org.
+                - generic [ref=f3e363]:
+                  - 'heading "Step 4: Create a Project in Seaport" [level=2] [ref=f3e364]'
+                  - 'link "Permalink: Step 4: Create a Project in Seaport" [ref=f3e365] [cursor=pointer]':
+                    - /url: "#step-4-create-a-project-in-seaport"
+                - paragraph [ref=f3e368]: A project in Seaport is a workspace that holds your Daml files. Once the project exists, you can edit files in the browser, build the project into a DAR, and deploy it.
+                - blockquote [ref=f3e369]:
+                  - paragraph [ref=f3e370]:
+                    - strong [ref=f3e371]: Make sure you are in the right mode first.
+                    - text: For hackathon work, switch to your team's org in the org switcher before creating the project (or use
+                    - link "Step 12" [ref=f3e372] [cursor=pointer]:
+                      - /url: "#step-12-transfer-project-ownership"
+                    - text: afterwards to move it).
+                - generic [ref=f3e373]:
+                  - heading "Starting from scratch" [level=3] [ref=f3e374]
+                  - 'link "Permalink: Starting from scratch" [ref=f3e375] [cursor=pointer]':
+                    - /url: "#starting-from-scratch"
+                - list [ref=f3e378]:
+                  - listitem [ref=f3e379]:
+                    - text: On the Dashboard, click
+                    - strong [ref=f3e380]: New Blank Project
+                    - text: .
+                  - listitem [ref=f3e381]:
+                    - text: Give your project a
+                    - strong [ref=f3e382]: name
+                    - text: (e.g. "My First Contract").
+                  - listitem [ref=f3e383]:
+                    - text: Pick an optional
+                    - strong [ref=f3e384]: colour
+                    - text: to identify it visually.
+                  - listitem [ref=f3e385]:
+                    - text: Click
+                    - strong [ref=f3e386]: Create
+                    - text: .
+                - paragraph [ref=f3e387]: Your project opens in a new tab with a file explorer on the left, a code editor in the centre, and action buttons at the top.
+                - generic [ref=f3e388]:
+                  - heading "Starting from a template" [level=3] [ref=f3e389]
+                  - 'link "Permalink: Starting from a template" [ref=f3e390] [cursor=pointer]':
+                    - /url: "#starting-from-a-template"
+                - list [ref=f3e393]:
+                  - listitem [ref=f3e394]:
+                    - text: Scroll down on the Dashboard to
+                    - strong [ref=f3e395]: Start With A Template
+                    - text: .
+                  - listitem [ref=f3e396]: Pick a template that fits your use case (e.g. "DAML Intro Data").
+                  - listitem [ref=f3e397]: The project is created with starter files already in place.
+                - generic [ref=f3e398]:
+                  - heading "Importing from GitHub (optional)" [level=3] [ref=f3e399]
+                  - 'link "Permalink: Importing from GitHub (optional)" [ref=f3e400] [cursor=pointer]':
+                    - /url: "#importing-from-github-optional"
+                - paragraph [ref=f3e403]:
+                  - text: If you already have a project on GitHub (e.g. the
+                  - code [ref=f3e404]: cn-quickstart
+                  - text: "repo from Step 4):"
+                - list [ref=f3e405]:
+                  - listitem [ref=f3e406]:
+                    - text: Click
+                    - strong [ref=f3e407]: Connect GitHub
+                    - text: on the Dashboard.
+                  - listitem [ref=f3e408]: Complete the GitHub authorisation flow.
+                  - listitem [ref=f3e409]: Select a repository and branch to import.
+                  - listitem [ref=f3e410]: Files will be pulled into a new project automatically.
+                - generic [ref=f3e411]:
+                  - 'heading "Step 5: Write Your Smart Contract" [level=2] [ref=f3e412]'
+                  - 'link "Permalink: Step 5: Write Your Smart Contract" [ref=f3e413] [cursor=pointer]':
+                    - /url: "#step-5-write-your-smart-contract"
+                - list [ref=f3e416]:
+                  - listitem [ref=f3e417]:
+                    - text: In the
+                    - strong [ref=f3e418]: File Explorer
+                    - text: on the left, click on a
+                    - code [ref=f3e419]: .daml
+                    - text: file to open it.
+                  - listitem [ref=f3e420]: Use the code editor to write your contract template.
+                  - listitem [ref=f3e421]:
+                    - text: When ready, click
+                    - strong [ref=f3e422]: Save
+                    - text: in the top bar (or press Ctrl/Cmd + S) to save the file.
+                - paragraph [ref=f3e423]:
+                  - text: You can also write and edit your
+                  - code [ref=f3e424]: .daml
+                  - text: files locally in your favourite editor and just commit them to the GitHub repo that Seaport is connected to.
+                - generic [ref=f3e425]:
+                  - 'heading "Step 6: Build Your Project" [level=2] [ref=f3e426]'
+                  - 'link "Permalink: Step 6: Build Your Project" [ref=f3e427] [cursor=pointer]':
+                    - /url: "#step-6-build-your-project"
+                - paragraph [ref=f3e430]: "A DAR is the deployable artifact equivalent to a compiled smart contract. You can build from inside Seaport:"
+                - list [ref=f3e431]:
+                  - listitem [ref=f3e432]:
+                    - text: Click
+                    - strong [ref=f3e433]: Build Project
+                    - text: in the top bar of your project.
+                  - listitem [ref=f3e434]:
+                    - text: The
+                    - strong [ref=f3e435]: OUTPUT
+                    - text: panel at the bottom shows the build progress.
+                  - listitem [ref=f3e436]:
+                    - text: When the build finishes, you will see a success message and the location of the built
+                    - code [ref=f3e437]: .dar
+                    - text: file.
+                  - listitem [ref=f3e438]:
+                    - text: The DAR file appears under the
+                    - strong [ref=f3e439]: Builds
+                    - text: folder in the File Explorer.
+                - generic [ref=f3e440]:
+                  - heading "Test locally" [level=3] [ref=f3e441]
+                  - 'link "Permalink: Test locally" [ref=f3e442] [cursor=pointer]':
+                    - /url: "#test-locally"
+                - paragraph [ref=f3e445]: If the build fails, the output panel will show the error. Fix the code and try again.
+                - generic [ref=f3e446]:
+                  - 'heading "Step 7: Configure a Validator" [level=2] [ref=f3e447]'
+                  - 'link "Permalink: Step 7: Configure a Validator" [ref=f3e448] [cursor=pointer]':
+                    - /url: "#step-7-configure-a-validator"
+                - blockquote [ref=f3e451]:
+                  - paragraph [ref=f3e452]:
+                    - strong [ref=f3e453]: HACKATHON BUILDERS CAN SKIP THIS STEP.
+                    - text: Your org's shared
+                    - strong [ref=f3e454]:
+                      - code [ref=f3e455]: 5n sandbox
+                    - text: DevNet validator is set up for you automatically and will appear in the Validator dropdown the first time you deploy. If you do not see it, ask your organizer to verify your org membership.
+                - paragraph [ref=f3e456]: "If you ever do need to add a custom validator (for example, a private validator your team hosts), here's how:"
+                - paragraph [ref=f3e457]:
+                  - text: A
+                  - strong [ref=f3e458]: Validator configuration
+                  - text: "is a saved connection to a Canton validator: a base URL, an OIDC identity provider, and a few related settings. Configurations are"
+                  - strong [ref=f3e459]: scoped to your current mode
+                  - text: — in Personal mode you manage
+                  - emphasis [ref=f3e460]: your
+                  - text: validators at
+                  - code [ref=f3e461]: /validator-settings
+                  - text: ; in Org mode you manage
+                  - emphasis [ref=f3e462]: that org's
+                  - text: validators at
+                  - code [ref=f3e463]: "/{slug}/validator-settings"
+                  - text: . The two lists are completely independent.
+                - generic [ref=f3e464]:
+                  - heading "Open Validator Settings" [level=3] [ref=f3e465]
+                  - 'link "Permalink: Open Validator Settings" [ref=f3e466] [cursor=pointer]':
+                    - /url: "#open-validator-settings"
+                - list [ref=f3e469]:
+                  - listitem [ref=f3e470]:
+                    - strong [ref=f3e471]: From the sidebar
+                    - text: ": click the"
+                    - strong [ref=f3e472]: gear icon
+                    - text: (Validator Settings) in the left sidebar.
+                  - listitem [ref=f3e473]:
+                    - strong [ref=f3e474]: From the URL bar
+                    - text: ":"
+                    - code [ref=f3e475]: /validator-settings
+                    - text: (Personal) or
+                    - code [ref=f3e476]: "/{slug}/validator-settings"
+                    - text: (Org).
+                - paragraph [ref=f3e477]:
+                  - text: The page title is
+                  - strong [ref=f3e478]: Validator Settings
+                  - text: . The subtitle reads either
+                  - emphasis [ref=f3e479]: Configure Validator integration for Canton API access
+                  - text: (Personal) or
+                  - emphasis [ref=f3e480]: "Configure Validator integration for {orgName}"
+                  - text: (Org).
+                - generic [ref=f3e481]:
+                  - heading "Create a new Validator configuration" [level=3] [ref=f3e482]
+                  - 'link "Permalink: Create a new Validator configuration" [ref=f3e483] [cursor=pointer]':
+                    - /url: "#create-a-new-validator-configuration"
+                - list [ref=f3e486]:
+                  - listitem [ref=f3e487]:
+                    - text: Click
+                    - strong [ref=f3e488]: New Configuration
+                    - text: (top-right).
+                  - listitem [ref=f3e489]: "Fill in the form:"
+                - table [ref=f3e491]:
+                  - rowgroup [ref=f3e492]:
+                    - row [ref=f3e493]:
+                      - columnheader "Field" [ref=f3e494]
+                      - columnheader "What it is" [ref=f3e495]
+                      - columnheader "Notes" [ref=f3e496]
+                  - rowgroup [ref=f3e497]:
+                    - row [ref=f3e498]:
+                      - cell [ref=f3e499]:
+                        - strong [ref=f3e500]: Validator Name
+                      - cell "A friendly label you choose" [ref=f3e501]
+                      - cell "e.g. \"Devnet — My Validator\". Shown in the Validator dropdown elsewhere in the app." [ref=f3e502]
+                    - row [ref=f3e503]:
+                      - cell [ref=f3e504]:
+                        - strong [ref=f3e505]: Validator Environment
+                      - cell "Which network the validator lives on" [ref=f3e506]
+                      - cell [ref=f3e507]:
+                        - text: Pick
+                        - strong [ref=f3e508]: devnet
+                        - text: ","
+                        - strong [ref=f3e509]: testnet
+                        - text: ", or"
+                        - strong [ref=f3e510]: mainnet
+                        - text: . Shown as a coloured badge next to the name.
+                    - row [ref=f3e511]:
+                      - cell [ref=f3e512]:
+                        - strong [ref=f3e513]: Ledger API URL
+                      - cell "Base URL of the Canton JSON Ledger API (v2)" [ref=f3e514]
+                      - cell [ref=f3e515]:
+                        - text: e.g.
+                        - code [ref=f3e516]: https://api.example.com
+                        - text: .
+                    - row [ref=f3e517]:
+                      - cell [ref=f3e518]:
+                        - strong [ref=f3e519]: OIDC Issuer URL
+                      - cell "URL of the identity provider that issues tokens for this validator" [ref=f3e520]
+                      - cell [ref=f3e521]:
+                        - text: e.g.
+                        - code [ref=f3e522]: https://auth.example.com
+                        - text: .
+                    - row [ref=f3e523]:
+                      - cell [ref=f3e524]:
+                        - strong [ref=f3e525]: OIDC Client ID
+                      - cell "The application client ID Seaport uses to authenticate" [ref=f3e526]
+                      - cell "Provided by your validator / IdP admin." [ref=f3e527]
+                    - row [ref=f3e528]:
+                      - cell [ref=f3e529]:
+                        - strong [ref=f3e530]: Client Secret
+                      - cell "The matching client secret" [ref=f3e531]
+                      - cell [ref=f3e532]:
+                        - text: Leave
+                        - strong [ref=f3e533]: blank
+                        - text: when editing an existing config to keep the current secret.
+                    - row [ref=f3e534]:
+                      - cell [ref=f3e535]:
+                        - strong [ref=f3e536]: API Audience
+                      - cell "Optional. Audience claim expected in the token" [ref=f3e537]
+                      - cell "Usually empty for Keycloak." [ref=f3e538]
+                    - row [ref=f3e539]:
+                      - cell [ref=f3e540]:
+                        - strong [ref=f3e541]: Scope
+                      - cell "OIDC scopes to request" [ref=f3e542]
+                      - cell [ref=f3e543]:
+                        - text: "Typical default:"
+                        - code [ref=f3e544]: daml_ledger_api
+                        - text: .
+                    - row [ref=f3e545]:
+                      - cell [ref=f3e546]:
+                        - strong [ref=f3e547]: Default Operator Party
+                      - cell [ref=f3e548]:
+                        - text: The party ID used as
+                        - code [ref=f3e549]: actAs
+                        - text: when creating contracts from the Contract Factory
+                      - cell "Optional. If unset, you must pick the party manually each time." [ref=f3e550]
+                    - row [ref=f3e551]:
+                      - cell [ref=f3e552]:
+                        - strong [ref=f3e553]: Use Proxy Server
+                      - cell "Toggle on only if your validator requires a fixed IP for IP allow-listing" [ref=f3e554]
+                      - cell "Rare. Leave off unless your org admin tells you to." [ref=f3e555]
+                - list [ref=f3e556]:
+                  - listitem [ref=f3e557]:
+                    - text: Click
+                    - strong [ref=f3e558]: Create Configuration
+                    - text: .
+                - generic [ref=f3e559]:
+                  - heading "Edit or delete" [level=3] [ref=f3e560]
+                  - 'link "Permalink: Edit or delete" [ref=f3e561] [cursor=pointer]':
+                    - /url: "#edit-or-delete"
+                - list [ref=f3e564]:
+                  - listitem [ref=f3e565]:
+                    - strong [ref=f3e566]: Edit
+                    - text: ": click"
+                    - strong [ref=f3e567]: Edit
+                    - text: on a row. Leave the
+                    - strong [ref=f3e568]: Client Secret
+                    - text: blank to keep the current secret.
+                  - listitem [ref=f3e569]:
+                    - strong [ref=f3e570]: Delete
+                    - text: ": click"
+                    - strong [ref=f3e571]: Delete
+                    - text: and confirm. Existing contracts on that validator are
+                    - strong [ref=f3e572]: not
+                    - text: affected, but you will no longer be able to deploy new packages or create new contracts against it from this mode.
+                - generic [ref=f3e573]:
+                  - 'heading "Step 8: Deploy to a Validator" [level=2] [ref=f3e574]'
+                  - 'link "Permalink: Step 8: Deploy to a Validator" [ref=f3e575] [cursor=pointer]':
+                    - /url: "#step-8-deploy-to-a-validator"
+                - paragraph [ref=f3e578]: Deploying uploads your built DAR file to a Canton validator so it can be used on the network.
+                - list [ref=f3e579]:
+                  - listitem [ref=f3e580]:
+                    - text: Click
+                    - strong [ref=f3e581]: Deploy
+                    - text: in the top bar of your project.
+                  - listitem [ref=f3e582]:
+                    - text: The
+                    - strong [ref=f3e583]: Deploy
+                    - text: "modal opens showing:"
+                    - list [ref=f3e584]:
+                      - listitem [ref=f3e585]: A list of your built DAR files (tick the ones you want to deploy).
+                      - listitem [ref=f3e586]:
+                        - text: A
+                        - strong [ref=f3e587]: Validator
+                        - text: dropdown — only the validators configured for the current mode are listed.
+                  - listitem [ref=f3e588]:
+                    - text: Pick the validator you want to deploy to. For hackathon work, this should be the
+                    - strong [ref=f3e589]:
+                      - code [ref=f3e590]: 5n sandbox
+                    - text: validator configured for your team org.
+                  - listitem [ref=f3e591]:
+                    - text: Click
+                    - strong [ref=f3e592]: Deploy
+                    - text: and confirm when prompted.
+                  - listitem [ref=f3e593]: Wait for the deployment to finish. On success, the modal confirms the deployment.
+                  - listitem [ref=f3e594]: Close the modal — your DAR is now live on the chosen validator.
+                - blockquote [ref=f3e595]:
+                  - paragraph [ref=f3e596]:
+                    - strong [ref=f3e597]: "Tip:"
+                    - text: deploy to the validator your org admin specified. If you are unsure which one, ask in your Hackathon Discord Canton channel.
+                - generic [ref=f3e598]:
+                  - 'heading "Step 9: Create a Contract" [level=2] [ref=f3e599]'
+                  - 'link "Permalink: Step 9: Create a Contract" [ref=f3e600] [cursor=pointer]':
+                    - /url: "#step-9-create-a-contract"
+                - paragraph [ref=f3e603]: Now that your DAR is deployed, you can create an actual contract instance from one of its templates.
+                - blockquote [ref=f3e604]:
+                  - paragraph [ref=f3e605]:
+                    - strong [ref=f3e606]: The validator selector on this page also only shows validators for your current mode.
+                - generic [ref=f3e607]:
+                  - heading "Open the Contract Factory" [level=3] [ref=f3e608]
+                  - 'link "Permalink: Open the Contract Factory" [ref=f3e609] [cursor=pointer]':
+                    - /url: "#open-the-contract-factory"
+                - paragraph [ref=f3e612]: "There are two ways to get there:"
+                - list [ref=f3e613]:
+                  - listitem [ref=f3e614]:
+                    - strong [ref=f3e615]: From your project
+                    - text: ": In the File Explorer, right-click a built"
+                    - code [ref=f3e616]: .dar
+                    - text: file and choose the create contract option.
+                  - listitem [ref=f3e617]:
+                    - strong [ref=f3e618]: From anywhere
+                    - text: ": Click the"
+                    - strong [ref=f3e619]: Deploy DAR
+                    - text: icon (lightning bolt) in the sidebar, or go to the Dashboard and click
+                    - strong [ref=f3e620]: Create Contract
+                    - text: .
+                - generic [ref=f3e621]:
+                  - heading "Fill in the form" [level=3] [ref=f3e622]
+                  - 'link "Permalink: Fill in the form" [ref=f3e623] [cursor=pointer]':
+                    - /url: "#fill-in-the-form"
+                - paragraph [ref=f3e626]: "The Contract Factory has several sections:"
+                - list [ref=f3e627]:
+                  - listitem [ref=f3e628]:
+                    - paragraph [ref=f3e629]:
+                      - strong [ref=f3e630]: Validator Selector
+                      - text: — choose which validator to create the contract on (shows only the validators for your current mode).
+                  - listitem [ref=f3e631]:
+                    - paragraph [ref=f3e632]:
+                      - strong [ref=f3e633]: Template List
+                      - text: — pick a template from the loaded DAR file (e.g.
+                      - code [ref=f3e634]: Greeting
+                      - text: ).
+                  - listitem [ref=f3e635]:
+                    - paragraph [ref=f3e636]:
+                      - strong [ref=f3e637]: Contract Form
+                      - text: "— fill in the required fields:"
+                    - list [ref=f3e638]:
+                      - listitem [ref=f3e639]:
+                        - strong [ref=f3e640]: sender
+                        - text: — select or paste a party ID.
+                      - listitem [ref=f3e641]:
+                        - strong [ref=f3e642]: message
+                        - text: — type the initial message text.
+                  - listitem [ref=f3e643]:
+                    - paragraph [ref=f3e644]:
+                      - text: Click
+                      - strong [ref=f3e645]: Create Contract
+                      - text: .
+                  - listitem [ref=f3e646]:
+                    - paragraph [ref=f3e647]: A log panel on the right shows the creation request and result.
+                  - listitem [ref=f3e648]:
+                    - paragraph [ref=f3e649]:
+                      - text: On success, you will see the new
+                      - strong [ref=f3e650]: Contract ID
+                      - text: — this is your live, on-ledger contract.
+                - generic [ref=f3e651]:
+                  - 'heading "Step 10: Exercise a Choice" [level=2] [ref=f3e652]'
+                  - 'link "Permalink: Step 10: Exercise a Choice" [ref=f3e653] [cursor=pointer]':
+                    - /url: "#step-10-exercise-a-choice"
+                - paragraph [ref=f3e656]: A "choice" is an action you can perform on a contract — think of it as a button you press to change or end the contract's state.
+                - generic [ref=f3e657]:
+                  - heading "10.1 — Find your contract" [level=3] [ref=f3e658]
+                  - 'link "Permalink: 10.1 — Find your contract" [ref=f3e659] [cursor=pointer]':
+                    - /url: "#101--find-your-contract"
+                - paragraph [ref=f3e662]:
+                  - text: After inspecting a DAR file and selecting a template, scroll down to the
+                  - strong [ref=f3e663]: ACTIVE CONTRACTS
+                  - text: "section. You will see a table with these columns:"
+                - table [ref=f3e665]:
+                  - rowgroup [ref=f3e666]:
+                    - row [ref=f3e667]:
+                      - columnheader "Column" [ref=f3e668]
+                      - columnheader "Description" [ref=f3e669]
+                  - rowgroup [ref=f3e670]:
+                    - row [ref=f3e671]:
+                      - cell [ref=f3e672]:
+                        - strong [ref=f3e673]: ID
+                      - cell [ref=f3e674]:
+                        - text: Shortened contract identifier — hover or click
+                        - strong [ref=f3e675]: Show Data
+                        - text: to see the full details
+                    - row [ref=f3e676]:
+                      - cell [ref=f3e677]:
+                        - strong [ref=f3e678]: Signatories
+                      - cell "Parties who signed the contract" [ref=f3e679]
+                    - row [ref=f3e680]:
+                      - cell [ref=f3e681]:
+                        - strong [ref=f3e682]: Time
+                      - cell "When the contract was created" [ref=f3e683]
+                    - row [ref=f3e684]:
+                      - cell [ref=f3e685]:
+                        - strong [ref=f3e686]: Data
+                      - cell [ref=f3e687]:
+                        - text: Contract payload — click
+                        - strong [ref=f3e688]: Show Data
+                        - text: to expand
+                    - row [ref=f3e689]:
+                      - cell [ref=f3e690]:
+                        - strong [ref=f3e691]: Choice
+                      - cell "Button to execute actions on this contract" [ref=f3e692]
+                - blockquote [ref=f3e693]:
+                  - paragraph [ref=f3e694]:
+                    - strong [ref=f3e695]: The active contracts list also shows only contracts from your current mode's validators.
+                    - text: To see contracts on a different validator, switch the org switcher.
+                - generic [ref=f3e696]:
+                  - heading "10.2 — Pick a choice" [level=3] [ref=f3e697]
+                  - 'link "Permalink: 10.2 — Pick a choice" [ref=f3e698] [cursor=pointer]':
+                    - /url: "#102--pick-a-choice"
+                - paragraph [ref=f3e701]:
+                  - text: Find the contract you want to interact with and click the
+                  - strong [ref=f3e702]: ○ Choice
+                  - text: button in the rightmost column.
+                - list [ref=f3e703]:
+                  - listitem [ref=f3e704]:
+                    - text: If the template has
+                    - strong [ref=f3e705]: one available action
+                    - text: ", you go straight to the execution form."
+                  - listitem [ref=f3e706]:
+                    - text: If the template has
+                    - strong [ref=f3e707]: multiple actions
+                    - text: ", a dropdown appears — pick the choice you want to execute."
+                - generic [ref=f3e708]:
+                  - heading "10.3 — Fill in and execute" [level=3] [ref=f3e709]
+                  - 'link "Permalink: 10.3 — Fill in and execute" [ref=f3e710] [cursor=pointer]':
+                    - /url: "#103--fill-in-and-execute"
+                - paragraph [ref=f3e713]:
+                  - text: The view switches to
+                  - strong [ref=f3e714]: Contract Detail
+                  - text: "mode with two panels:"
+                - list [ref=f3e715]:
+                  - listitem [ref=f3e716]:
+                    - strong [ref=f3e717]: Left panel
+                    - text: "— Read-only contract details: signatories, observers, and the full payload."
+                  - listitem [ref=f3e718]:
+                    - strong [ref=f3e719]: Right panel
+                    - text: — Execution form for your selected choice, with a field for each argument.
+                - paragraph [ref=f3e720]:
+                  - text: Fill in the required fields, then click
+                  - strong [ref=f3e721]: Execute <ChoiceName>
+                  - text: to submit the transaction.
+                - generic [ref=f3e722]:
+                  - heading "10.4 — After execution" [level=3] [ref=f3e723]
+                  - 'link "Permalink: 10.4 — After execution" [ref=f3e724] [cursor=pointer]':
+                    - /url: "#104--after-execution"
+                - paragraph [ref=f3e727]: "The contract list refreshes automatically. What happens depends on the choice type:"
+                - table [ref=f3e729]:
+                  - rowgroup [ref=f3e730]:
+                    - row [ref=f3e731]:
+                      - columnheader "Choice type" [ref=f3e732]
+                      - columnheader "Result" [ref=f3e733]
+                  - rowgroup [ref=f3e734]:
+                    - row [ref=f3e735]:
+                      - cell [ref=f3e736]:
+                        - strong [ref=f3e737]: Consuming
+                      - cell "The contract is archived and disappears from the list" [ref=f3e738]
+                    - row [ref=f3e739]:
+                      - cell [ref=f3e740]:
+                        - strong [ref=f3e741]: Non-consuming
+                      - cell "The contract remains visible with updated values" [ref=f3e742]
+                - blockquote [ref=f3e743]:
+                  - paragraph [ref=f3e744]:
+                    - strong [ref=f3e745]: "For hackathon builders:"
+                    - text: every create, exercise, and archive on your team's contracts is recorded in your org's
+                    - strong [ref=f3e746]: Contracts
+                    - text: tab — judges and teammates can see the full history there.
+                - generic [ref=f3e747]:
+                  - 'heading "Step 11: Transfer Project Ownership" [level=2] [ref=f3e748]'
+                  - 'link "Permalink: Step 11: Transfer Project Ownership" [ref=f3e749] [cursor=pointer]':
+                    - /url: "#step-11-transfer-project-ownership"
+                - paragraph [ref=f3e752]: "Use this when a project you started in one mode needs to live in another — most commonly:"
+                - list [ref=f3e753]:
+                  - listitem [ref=f3e754]:
+                    - strong [ref=f3e755]: Personal → Org
+                    - text: ": you drafted a project in Personal and now want to share it with your hackathon team."
+                  - listitem [ref=f3e756]:
+                    - strong [ref=f3e757]: Org → Personal
+                    - text: ": a project is no longer needed by the org and should be moved to a single user (org owner only)."
+                - generic [ref=f3e758]:
+                  - heading "How to transfer" [level=3] [ref=f3e759]
+                  - 'link "Permalink: How to transfer" [ref=f3e760] [cursor=pointer]':
+                    - /url: "#how-to-transfer"
+                - list [ref=f3e763]:
+                  - listitem [ref=f3e764]: Open the project.
+                  - listitem [ref=f3e765]:
+                    - text: In the project toolbar, click the
+                    - strong [ref=f3e766]: three-dots (overflow) menu
+                    - text: next to the
+                    - strong [ref=f3e767]: Deploy
+                    - text: button.
+                  - listitem [ref=f3e768]:
+                    - text: Choose
+                    - strong [ref=f3e769]: Transfer Ownership
+                    - text: .
+                  - listitem [ref=f3e770]: In the modal, pick the target org (or "Personal" for the reverse direction).
+                  - listitem [ref=f3e771]: Confirm.
+                - paragraph [ref=f3e772]: A toast confirms the transfer, and the project is removed from its old mode and added to the new one. Your open tab will reload against the new mode automatically.
+                - generic [ref=f3e773]:
+                  - heading "Permissions" [level=3] [ref=f3e774]
+                  - 'link "Permalink: Permissions" [ref=f3e775] [cursor=pointer]':
+                    - /url: "#permissions"
+                - table [ref=f3e779]:
+                  - rowgroup [ref=f3e780]:
+                    - row [ref=f3e781]:
+                      - columnheader "From → To" [ref=f3e782]
+                      - columnheader "Who can do it" [ref=f3e783]
+                  - rowgroup [ref=f3e784]:
+                    - row [ref=f3e785]:
+                      - cell "Personal project → Org" [ref=f3e786]
+                      - cell [ref=f3e787]:
+                        - text: The project owner,
+                        - strong [ref=f3e788]: and
+                        - text: they must be
+                        - strong [ref=f3e789]: Admin or higher
+                        - text: in the target org
+                    - row [ref=f3e790]:
+                      - cell "Org project → Personal" [ref=f3e791]
+                      - cell [ref=f3e792]:
+                        - strong [ref=f3e793]: Org Owner
+                        - text: only
+                    - row [ref=f3e794]:
+                      - cell "Org project → A different org" [ref=f3e795]
+                      - cell [ref=f3e796]:
+                        - strong [ref=f3e797]: Org Owner
+                        - text: only — transfers via Personal as an intermediate step
+                - blockquote [ref=f3e798]:
+                  - paragraph [ref=f3e799]:
+                    - strong [ref=f3e800]: "What gets transferred:"
+                    - text: the project, its files, its builds, and any contract state attached to the project's DARs. The previous mode's members lose live-edit access immediately.
+                - generic [ref=f3e801]:
+                  - 'heading "Reference: Building a TypeScript/React Frontend" [level=2] [ref=f3e802]'
+                  - 'link "Permalink: Reference: Building a TypeScript/React Frontend" [ref=f3e803] [cursor=pointer]':
+                    - /url: "#reference-building-a-typescriptreact-frontend"
+                - blockquote [ref=f3e806]:
+                  - paragraph [ref=f3e807]:
+                    - text: This section is optional. You can use Seaport's
+                    - strong [ref=f3e808]: Contracts
+                    - text: tab to create, browse, and exercise choices on your contracts without writing any frontend code — full contract history (every create, exercise, archive) is visible there.
+                - paragraph [ref=f3e809]: "If you want to build a custom UI:"
+                - generic [ref=f3e810]:
+                  - heading "Generate TypeScript Bindings" [level=3] [ref=f3e811]
+                  - 'link "Permalink: Generate TypeScript Bindings" [ref=f3e812] [cursor=pointer]':
+                    - /url: "#generate-typescript-bindings"
+                - generic [ref=f3e815]:
+                  - generic [ref=f3e816]: dpm codegen-js .daml/dist/my-project-1.0.0.dar -o src/generated
+                  - button "Copy code to clipboard" [ref=f3e818] [cursor=pointer]
+                - generic [ref=f3e822]:
+                  - heading "Connect to the Ledger" [level=3] [ref=f3e823]
+                  - 'link "Permalink: Connect to the Ledger" [ref=f3e824] [cursor=pointer]':
+                    - /url: "#connect-to-the-ledger"
+                - paragraph [ref=f3e827]:
+                  - text: Use
+                  - code [ref=f3e828]: "@c7/ledger"
+                  - text: (the current Canton client SDK, not the deprecated
+                  - code [ref=f3e829]: "@daml/ledger"
+                  - text: "):"
+                - generic [ref=f3e830]:
+                  - generic [ref=f3e831]: npm install @c7/ledger
+                  - button "Copy code to clipboard" [ref=f3e833] [cursor=pointer]
+                - blockquote [ref=f3e837]:
+                  - paragraph [ref=f3e838]:
+                    - strong [ref=f3e839]: Need help?
+                    - text: Post in your hackathon Discord Canton Channel.
+        - generic [ref=f3e843]:
+          - generic [ref=f3e846]:
+            - heading "About" [level=2] [ref=f3e847]
+            - paragraph [ref=f3e848]:
+              - link "https://devnet.seaport.to/" [ref=f3e849] [cursor=pointer]:
+                - /url: https://devnet.seaport.to/
+            - heading "Resources" [level=3] [ref=f3e850]
+            - link "Readme" [ref=f3e852] [cursor=pointer]:
+              - /url: "#readme-ov-file"
+            - link "Activity" [ref=f3e856] [cursor=pointer]:
+              - /url: /Jatinp26/Seaport-Guide/activity
+            - heading "Stars" [level=3] [ref=f3e859]
+            - generic [ref=f3e861]:
+              - strong [ref=f3e864]: "6"
+              - text: stars
+            - heading "Watchers" [level=3] [ref=f3e865]
+            - generic [ref=f3e867]:
+              - strong [ref=f3e870]: "0"
+              - text: watching
+            - heading "Forks" [level=3] [ref=f3e871]
+            - link [ref=f3e873] [cursor=pointer]:
+              - /url: /Jatinp26/Seaport-Guide/forks
+              - strong [ref=f3e876]: "2"
+              - text: forks
+            - link "Report repository" [ref=f3e878] [cursor=pointer]:
+              - /url: /contact/report-content?content_url=https%3A%2F%2Fgithub.com%2FJatinp26%2FSeaport-Guide&report=Jatinp26+%28user%29
+          - generic [ref=f3e880]:
+            - heading [level=2] [ref=f3e881]:
+              - link "Releases" [ref=f3e882] [cursor=pointer]:
+                - /url: /Jatinp26/Seaport-Guide/releases
+            - generic [ref=f3e883]: No releases published
+          - generic [ref=f3e885]:
+            - heading [level=2] [ref=f3e886]:
+              - link "Packages" [ref=f3e887] [cursor=pointer]:
+                - /url: /users/Jatinp26/packages?repo_name=Seaport-Guide
+            - generic [ref=f3e888]: No packages published
+          - generic [ref=f3e890]:
+            - heading [level=2] [ref=f3e891]:
+              - link "Contributors 1" [ref=f3e892] [cursor=pointer]:
+                - /url: /Jatinp26/Seaport-Guide/graphs/contributors
+                - text: Contributors
+                - generic "1" [ref=f3e893]
+            - list [ref=f3e894]:
+              - listitem [ref=f3e895]:
+                - link [ref=f3e896] [cursor=pointer]:
+                  - /url: https://github.com/Jatinp26
+                  - img "@Jatinp26" [ref=f3e897]
+                - link [ref=f3e899] [cursor=pointer]:
+                  - /url: https://github.com/Jatinp26
+                  - strong [ref=f3e900]: Jatinp26
+                  - text: Jatin Pandya
+  - contentinfo [ref=f3e902]:
+    - heading "Footer" [level=2] [ref=f3e903]
+    - generic [ref=f3e904]:
+      - generic [ref=f3e905]:
+        - link "GitHub Homepage" [ref=f3e906] [cursor=pointer]:
+          - /url: https://github.com
+        - generic [ref=f3e909]: © 2026 GitHub, Inc.
+      - navigation "Footer" [ref=f3e910]:
+        - heading "Footer navigation" [level=3] [ref=f3e911]
+        - list "Footer navigation" [ref=f3e912]:
+          - listitem [ref=f3e913]:
+            - link "Terms" [ref=f3e914] [cursor=pointer]:
+              - /url: https://docs.github.com/site-policy/github-terms/github-terms-of-service
+          - listitem [ref=f3e915]:
+            - link "Privacy" [ref=f3e916] [cursor=pointer]:
+              - /url: https://docs.github.com/site-policy/privacy-policies/github-privacy-statement
+          - listitem [ref=f3e917]:
+            - link "Security" [ref=f3e918] [cursor=pointer]:
+              - /url: https://github.com/security
+          - listitem [ref=f3e919]:
+            - link "Status" [ref=f3e920] [cursor=pointer]:
+              - /url: https://www.githubstatus.com/
+          - listitem [ref=f3e921]:
+            - link "Community" [ref=f3e922] [cursor=pointer]:
+              - /url: https://github.community/
+          - listitem [ref=f3e923]:
+            - link "Docs" [ref=f3e924] [cursor=pointer]:
+              - /url: https://docs.github.com/
+          - listitem [ref=f3e925]:
+            - link "Contact" [ref=f3e926] [cursor=pointer]:
+              - /url: https://support.github.com?tags=dotcom-footer
+          - listitem [ref=f3e927]:
+            - button "Manage cookies" [ref=f3e929] [cursor=pointer]
+          - listitem [ref=f3e930]:
+            - button "Do not share my personal information" [ref=f3e932] [cursor=pointer]
