@@ -17,7 +17,9 @@
 #
 set -euo pipefail
 
-DAR="daml/mandate-model/.daml/dist/mandate-model-0.1.0.dar"
+# Resolve paths relative to this script so it works from any cwd.
+ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+DAR="$ROOT/daml/mandate-model/.daml/dist/mandate-model-0.1.0.dar"
 
 need() {
   if [ -z "${!1:-}" ]; then
@@ -36,7 +38,7 @@ AUDIENCE="${OIDC_AUDIENCE:-https://canton.network.global}"
 
 if [ ! -f "$DAR" ]; then
   echo "==> DAR not found, building"
-  (cd daml/mandate-model && daml build --no-legacy-assistant-warning)
+  (cd "$ROOT/daml/mandate-model" && daml build --no-legacy-assistant-warning)
 fi
 echo "==> DAR: $DAR ($(du -h "$DAR" | cut -f1))"
 

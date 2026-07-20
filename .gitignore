@@ -1,26 +1,26 @@
+# Build artifacts
 .daml/
 node_modules/
 .next/
 out/
 build/
-.env
-.env*.local
-.vercel
-*.dar
-.DS_Store
 log/
 *.log
-.playwright-mcp/
+*.dar
 
-# Shared hackathon credential — never publish
-docs/*.pdf
-.env.devnet
-
-# Credentials and shared secrets — never publish
-docs/*.pdf
-docs/**/*.pdf
+# Credentials — never publish
+*.pdf
+.env
+.env*.local
 .env.devnet
 *.token
-writ-initial.png
+.vercel
+
+# Docs live outside the published repo
+docs/
+
+# Local noise
+.playwright-mcp/
 *.png
-!web/public/*.svg
+!writ/web/public/*.svg
+.DS_Store

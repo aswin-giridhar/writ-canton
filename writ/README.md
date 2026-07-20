@@ -93,15 +93,18 @@ There is nothing there to attack.
 ## Architecture
 
 ```
-daml/
-  mandate-model/   Templates only. This DAR is deployed to the validator.
-  mandate-test/    Daml Script tests. Never uploaded.
-web/
-  src/lib/ledger.ts    JSON Ledger API v2 client
-  src/lib/scenario.ts  The GPU-procurement scenario
-  src/app/api/agent    free text -> Claude -> order -> ledger
-  src/app/api/attempt  direct order submission, bypassing the model
-  src/app/api/state    per-party ledger views
+writ/
+  daml/
+    mandate-model/   Templates only. This DAR is deployed to the validator.
+    mandate-test/    Daml Script tests. Never uploaded.
+  web/
+    src/lib/ledger.ts    JSON Ledger API v2 client
+    src/lib/scenario.ts  The GPU-procurement scenario
+    src/app/api/agent    free text -> Claude -> order -> ledger
+    src/app/api/attempt  direct order submission, bypassing the model
+    src/app/api/state    per-party ledger views
+  scripts/
+    deploy-devnet.sh     token grant, DAR upload, vetting check
 ```
 
 **The packages are split deliberately.** A single package would drag `daml-script` onto
@@ -153,13 +156,13 @@ No prompt can defend against that failure mode.
 
 ```bash
 # 1. Build the model
-cd daml/mandate-model && daml build
+cd writ/daml/mandate-model && daml build
 
 # 2. Run a ledger with the JSON API and the DAR preloaded
 daml sandbox --json-api-port 7575 --dar .daml/dist/mandate-model-0.1.0.dar
 
-# 3. Run the app
-cd web && npm install && npm run dev
+# 3. Run the app (or point it at Devnet — see the env table below)
+cd ../../web && npm install && npm run dev
 ```
 
 Environment:
@@ -197,7 +200,7 @@ above reserve price    $ 5,000   REFUSED — unit price 50.0 exceeds reserve pri
 unvetted counterparty  $ 4,000   REFUSED — counterparty not on allowlist
 ```
 
-`scripts/deploy-devnet.sh` performs the whole deployment: token grant, DAR upload,
+`writ/scripts/deploy-devnet.sh` performs the whole deployment: token grant, DAR upload,
 vetting check, and the environment the web app needs.
 
 **Four parties, not five.** `writ-unvetted` is both the rejected counterparty and the
