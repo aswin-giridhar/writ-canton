@@ -1,26 +1,546 @@
-@import "tailwindcss";
+/*
+ * Writ — visual system.
+ *
+ * The subject is a legal instrument, not a crypto dashboard. Institutions
+ * exchange authority as documents: letters of credit, powers of attorney,
+ * field-tagged SWIFT messages. So the page reads as paper under glass rather
+ * than a terminal, and the one loud moment is a bank stamp.
+ *
+ * Hand-rolled rather than utility classes: the design is a small, specific
+ * system and reads more clearly as one.
+ */
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Cool bone, not the warm cream that every generated page reaches for. */
+  --paper: #e9eae4;
+  --paper-2: #f2f3ee;
+  --ink: #14181d;
+  --ink-soft: #4a5159;
+  --rule: #c3c7bd;
+  --rule-strong: #9aa094;
+
+  /* Oxblood for refusal, bottle green for settlement — muted enough to sit
+     on paper without shouting, until the stamp lands. */
+  --refuse: #8e1f24;
+  --refuse-wash: #f0dedd;
+  --settle: #1e4d3b;
+  --settle-wash: #dde8e0;
+
+  /* Private terms — reserve price, remaining budget — carry one restrained
+     indigo wherever they appear, so "the counterparty cannot see this" has a
+     consistent visual signature. */
+  --private: #2f3b6b;
+  --private-wash: #dfe2ee;
+
+  --shadow: 0 1px 0 rgba(20, 24, 29, 0.06), 0 12px 32px -18px rgba(20, 24, 29, 0.5);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html,
+body {
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: linear-gradient(180deg, var(--paper) 0%, #dfe1da 100%);
+  background-attachment: fixed;
+  color: var(--ink);
+  font-family: var(--font-sans), system-ui, sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+
+/* ---- type ------------------------------------------------------------- */
+
+.eyebrow {
+  font-family: var(--font-mono), monospace;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.wordmark {
+  font-weight: 700;
+  font-size: clamp(30px, 5vw, 44px);
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  line-height: 1;
+  margin: 0;
+}
+
+.thesis {
+  font-family: var(--font-mono), monospace;
+  font-size: clamp(12.5px, 1.7vw, 14.5px);
+  color: var(--ink-soft);
+  margin: 6px 0 0;
+}
+
+/* ---- shell ------------------------------------------------------------ */
+
+.shell {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 28px 20px 64px;
+}
+
+.masthead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  padding-bottom: 14px;
+  border-bottom: 2px solid var(--ink);
+}
+
+.ledger-badge {
+  font-family: var(--font-mono), monospace;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--ink-soft);
+  white-space: nowrap;
+}
+
+.dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--settle);
+  box-shadow: 0 0 0 3px var(--settle-wash);
+}
+
+.dot.down {
+  background: var(--refuse);
+  box-shadow: 0 0 0 3px var(--refuse-wash);
+}
+
+.columns {
+  display: grid;
+  grid-template-columns: minmax(300px, 380px) 1fr;
+  gap: 22px;
+  margin-top: 22px;
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .columns {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---- panels ----------------------------------------------------------- */
+
+.panel {
+  background: var(--paper-2);
+  border: 1px solid var(--rule);
+  box-shadow: var(--shadow);
+}
+
+.panel + .panel {
+  margin-top: 22px;
+}
+
+.panel-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--rule);
+  background: var(--paper);
+}
+
+.panel-title {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.panel-body {
+  padding: 14px;
+}
+
+/* ---- the instrument --------------------------------------------------- */
+
+/* Field-tagged rows, the way an institution actually transmits terms. */
+.field {
+  display: grid;
+  grid-template-columns: 58px 1fr;
+  gap: 10px;
+  padding: 5px 0;
+  border-bottom: 1px dotted var(--rule);
+  font-family: var(--font-mono), monospace;
+  font-size: 12.5px;
+  align-items: baseline;
+}
+
+.field:last-child {
+  border-bottom: none;
+}
+
+.field-tag {
+  color: var(--rule-strong);
+  font-size: 11px;
+}
+
+.field-value {
+  font-variant-numeric: tabular-nums;
+}
+
+.field.is-private .field-value {
+  color: var(--private);
+  background: var(--private-wash);
+  padding: 1px 6px;
+  margin: -1px -6px;
+}
+
+.private-note {
+  font-family: var(--font-mono), monospace;
+  font-size: 10.5px;
+  color: var(--private);
+  letter-spacing: 0.04em;
+  margin-top: 10px;
+  padding-left: 10px;
+  border-left: 2px solid var(--private);
+}
+
+/* Remaining authority drawn as a drained envelope rather than a progress
+   bar: it is a budget being consumed, not a task being completed. */
+.envelope {
+  margin-top: 14px;
+}
+
+.envelope-track {
+  height: 26px;
+  border: 1px solid var(--ink);
+  background: repeating-linear-gradient(
+    -45deg,
+    transparent 0 5px,
+    rgba(20, 24, 29, 0.06) 5px 10px
+  );
+  position: relative;
+  overflow: hidden;
+}
+
+.envelope-fill {
+  position: absolute;
+  inset: 0 auto 0 0;
+  background: var(--ink);
+  transition: width 700ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.envelope-legend {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-mono), monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin-top: 5px;
+}
+
+/* ---- visibility table -------------------------------------------------- */
+
+.visibility {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--font-mono), monospace;
+  font-size: 12px;
+}
+
+.visibility th {
+  text-align: left;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  font-weight: 500;
+  padding: 0 0 6px;
+  border-bottom: 1px solid var(--rule);
+}
+
+.visibility td {
+  padding: 7px 0;
+  border-bottom: 1px dotted var(--rule);
+}
+
+.visibility td:not(:first-child) {
+  text-align: center;
+  width: 62px;
+}
+
+.sees {
+  color: var(--settle);
+  font-weight: 600;
+}
+
+.blind {
+  color: var(--rule-strong);
+}
+
+/* ---- transmissions ----------------------------------------------------- */
+
+.log {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-height: 560px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.transmission {
+  position: relative;
+  border: 1px solid var(--rule);
+  background: var(--paper-2);
+  padding: 12px 14px;
+  font-family: var(--font-mono), monospace;
+  font-size: 12.5px;
+  animation: arrive 260ms ease-out both;
+}
+
+@keyframes arrive {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+}
+
+.transmission.settled {
+  border-left: 3px solid var(--settle);
+}
+
+.transmission.refused {
+  border-left: 3px solid var(--refuse);
+  background: var(--refuse-wash);
+}
+
+.transmission-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin-bottom: 8px;
+}
+
+.verdict {
+  font-weight: 600;
+  letter-spacing: 0.14em;
+}
+
+.verdict.settled {
+  color: var(--settle);
+}
+
+.verdict.refused {
+  color: var(--refuse);
+}
+
+.reason {
+  margin-top: 9px;
+  padding-top: 8px;
+  border-top: 1px dashed var(--refuse);
+  color: var(--refuse);
+  font-size: 12px;
+}
+
+.reason-label {
+  font-size: 9.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 3px;
+  opacity: 0.75;
+}
+
+/*
+ * The signature element. A refusal is not a toast or a red border — it is an
+ * authority stamping a document. Off-angle and double-ruled, because a real
+ * stamp never lands square.
+ */
+.stamp {
+  position: absolute;
+  top: 50%;
+  right: 18px;
+  transform: translateY(-50%) rotate(-11deg);
+  border: 3px double var(--refuse);
+  color: var(--refuse);
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 5px 12px 4px;
+  opacity: 0.82;
+  pointer-events: none;
+  animation: strike 340ms cubic-bezier(0.2, 1.6, 0.4, 1) both;
+  mix-blend-mode: multiply;
+}
+
+@keyframes strike {
+  0% {
+    opacity: 0;
+    transform: translateY(-50%) rotate(-11deg) scale(2.4);
+  }
+  70% {
+    opacity: 0.95;
+    transform: translateY(-50%) rotate(-11deg) scale(0.94);
+  }
+  100% {
+    opacity: 0.82;
+    transform: translateY(-50%) rotate(-11deg) scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stamp,
+  .transmission {
+    animation: none;
+  }
+  .envelope-fill {
+    transition: none;
+  }
+}
+
+/* ---- controls ---------------------------------------------------------- */
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: flex-end;
+}
+
+.control {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.control label {
+  font-family: var(--font-mono), monospace;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.control input,
+.control select {
+  font-family: var(--font-mono), monospace;
+  font-size: 13px;
+  padding: 7px 9px;
+  border: 1px solid var(--rule-strong);
+  background: var(--paper-2);
+  color: var(--ink);
+  border-radius: 0;
+}
+
+.control input:focus-visible,
+.control select:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--private);
+  outline-offset: 1px;
+}
+
+button {
+  font-family: var(--font-sans), sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 9px 16px;
+  border: 1px solid var(--ink);
+  background: var(--ink);
+  color: var(--paper-2);
+  cursor: pointer;
+  border-radius: 0;
+  transition: background 140ms ease, color 140ms ease;
+}
+
+button:hover:not(:disabled) {
+  background: transparent;
+  color: var(--ink);
+}
+
+button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+button.ghost {
+  background: transparent;
+  color: var(--ink);
+}
+
+button.ghost:hover:not(:disabled) {
+  background: var(--ink);
+  color: var(--paper-2);
+}
+
+button.danger {
+  border-color: var(--refuse);
+  background: var(--refuse);
+  color: var(--paper-2);
+}
+
+button.danger:hover:not(:disabled) {
+  background: transparent;
+  color: var(--refuse);
+}
+
+.preset-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px dotted var(--rule);
+}
+
+.hint {
+  font-family: var(--font-mono), monospace;
+  font-size: 11px;
+  color: var(--ink-soft);
+  margin: 0 0 10px;
+}
+
+.empty {
+  font-family: var(--font-mono), monospace;
+  font-size: 12px;
+  color: var(--ink-soft);
+  padding: 22px 0;
+  text-align: center;
+  border: 1px dashed var(--rule);
+}
+
+.footnote {
+  font-family: var(--font-mono), monospace;
+  font-size: 10.5px;
+  color: var(--ink-soft);
+  margin-top: 26px;
+  padding-top: 12px;
+  border-top: 1px solid var(--rule);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 18px;
 }

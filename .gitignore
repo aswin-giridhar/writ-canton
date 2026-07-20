@@ -8,3 +8,6 @@ build/
 .vercel
 *.dar
 .DS_Store
+log/
+*.log
+.playwright-mcp/
