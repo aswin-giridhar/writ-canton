@@ -21,3 +21,6 @@ docs/*.pdf
 docs/**/*.pdf
 .env.devnet
 *.token
+writ-initial.png
+*.png
+!web/public/*.svg
