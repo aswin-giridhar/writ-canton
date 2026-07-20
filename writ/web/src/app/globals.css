@@ -633,3 +633,185 @@ button.danger:hover:not(:disabled) {
   color: var(--rule-strong);
   word-break: break-word;
 }
+
+/* ---- deck ---------------------------------------------------------------- */
+
+/* 16:9 stage. Type is sized in vw so a slide reads identically at 1920x1080
+   (the video render) and on a laptop. */
+.deck {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3vh 4vw;
+  position: relative;
+}
+
+.deck.bare {
+  height: 100vh;
+  padding: 0;
+}
+
+.slide {
+  width: min(1600px, 92vw);
+  aspect-ratio: 16 / 9;
+  background: var(--paper-2);
+  border: 1px solid var(--rule);
+  box-shadow: var(--shadow);
+  padding: 4.5% 5.5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.4vh;
+  animation: slide-in 220ms ease-out both;
+}
+
+.deck.bare .slide {
+  width: 100vw;
+  height: 100vh;
+  aspect-ratio: auto;
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
+}
+
+@keyframes slide-in {
+  from { opacity: 0; transform: translateY(8px); }
+}
+
+.slide-eyebrow {
+  font-family: var(--font-mono), monospace;
+  font-size: clamp(10px, 1.05vw, 17px);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin: 0;
+}
+
+.slide-title {
+  font-size: clamp(26px, 3.5vw, 60px);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  margin: 0.4vh 0 0.8vh;
+  max-width: 22ch;
+}
+
+/* The opening slide is a wordmark, not a sentence. */
+.slide:first-child .slide-title { text-transform: uppercase; }
+
+.slide-body {
+  display: flex;
+  flex-direction: column;
+  gap: 1vh;
+  font-size: clamp(13px, 1.5vw, 25px);
+  line-height: 1.45;
+  max-width: 46ch;
+}
+
+.slide-body p { margin: 0; }
+
+.slide-body .bullet {
+  padding-left: 1.1em;
+  position: relative;
+  color: var(--ink-soft);
+}
+
+.slide-body .bullet::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.62em;
+  width: 0.55em;
+  height: 1px;
+  background: var(--rule-strong);
+}
+
+.slide-body strong { color: var(--ink); font-weight: 600; }
+
+.slide-body blockquote {
+  margin: 0.6vh 0 0;
+  padding-left: 0.9em;
+  border-left: 2px solid var(--private);
+  color: var(--private);
+  font-family: var(--font-mono), monospace;
+  font-size: clamp(11px, 1.2vw, 19px);
+  line-height: 1.5;
+}
+
+.slide-mono {
+  font-family: var(--font-mono), monospace;
+  font-size: clamp(9px, 1.1vw, 18px);
+  line-height: 1.6;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-left: 3px solid var(--ink);
+  padding: 1.6vh 1.6vw;
+  margin: 0.8vh 0 0;
+  overflow-x: auto;
+  white-space: pre;
+  color: var(--ink);
+}
+
+/* The refusal line is the point of the slide it appears on. */
+.slide-mono { --refuse-hl: var(--refuse); }
+
+.deck-nav {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 2.4vh;
+}
+
+.deck-nav button {
+  padding: 8px 16px;
+  font-size: 15px;
+  line-height: 1;
+}
+
+.deck-count {
+  font-family: var(--font-mono), monospace;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  color: var(--ink-soft);
+  min-width: 6ch;
+  text-align: center;
+}
+
+.deck-link {
+  font-family: var(--font-mono), monospace;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--private);
+  text-decoration: none;
+  margin-left: 10px;
+  border-bottom: 1px solid var(--private);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .slide { animation: none; }
+}
+
+/* Bare mode is a video frame, not a page: the slide must fill the viewport
+   exactly, with no body gutter or scroll gap bleeding in at the edges. */
+html:has(.deck.bare),
+body:has(.deck.bare) {
+  height: 100%;
+  overflow: hidden;
+  background: var(--paper);
+}
+
+.deck.bare {
+  min-height: 0;
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  overflow: hidden;
+}
+
+/* The refusal is the point of the slide it lands on — let it carry the
+   oxblood the rest of the deck reserves for exactly this. */
+.slide-mono { position: relative; }
+.deck .slide-mono::selection { background: var(--refuse-wash); }

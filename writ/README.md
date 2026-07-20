@@ -103,6 +103,8 @@ writ/
     src/app/api/agent    free text -> Claude -> order -> ledger
     src/app/api/attempt  direct order submission, bypassing the model
     src/app/api/state    per-party ledger views
+    src/app/deck         the pitch deck, as a page (?slide=N&bare=1 renders one frame)
+    src/lib/slides.ts    deck content + narration — one source for page and video
   scripts/
     deploy-devnet.sh     token grant, DAR upload, vetting check
 ```
@@ -190,6 +192,7 @@ Live on the shared FiveNorth Devnet validator:
 | Package id | `a4f6a9b04d0bbbcaf756e21eea0818013213d35547d38708ab21e541b3fb7671` |
 | Parties | `writ-northwind`, `writ-agent`, `writ-hyperscale`, `writ-unvetted` |
 | Live app | https://web-one-lyart-21.vercel.app |
+| Deck | https://web-one-lyart-21.vercel.app/deck |
 
 Enforcement exercised on-ledger — one purchase settled, three refused:
 
