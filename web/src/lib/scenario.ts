@@ -18,12 +18,21 @@ import {
 } from './ledger';
 import type { Contract, Mandate, Quote, Deal } from './types';
 
+/**
+ * Four parties, not five.
+ *
+ * `unvetted` does double duty: it is the counterparty missing from the
+ * mandate's allowlist *and* the uninvolved third party who can see nothing.
+ * That is deliberate. The shared Devnet validator authenticates every team
+ * through one user, whose rights are a finite resource — another team hit
+ * TOO_MANY_USER_RIGHTS at six parties. Spending four instead of five on
+ * shared infrastructure costs us nothing: both demonstrations still hold.
+ */
 export const PARTY_HINTS = {
-  principal: 'NorthwindAI',
-  agent: 'ProcurementAgent',
-  supplierA: 'HyperscaleCloud',
-  supplierB: 'AtlasCompute',
-  rogue: 'UnvettedBroker',
+  principal: 'writ-northwind',
+  agent: 'writ-agent',
+  supplier: 'writ-hyperscale',
+  unvetted: 'writ-unvetted',
 } as const;
 
 export type PartyRole = keyof typeof PARTY_HINTS;
@@ -31,24 +40,49 @@ export type PartyRole = keyof typeof PARTY_HINTS;
 export interface Parties {
   principal: string;
   agent: string;
-  supplierA: string;
-  supplierB: string;
-  rogue: string;
+  supplier: string;
+  unvetted: string;
 }
+
+/** Display names, kept apart from ledger ids so the UI reads like a product. */
+export const PARTY_LABELS: Record<PartyRole, string> = {
+  principal: 'Northwind AI',
+  agent: 'Procurement agent',
+  supplier: 'Hyperscale Cloud',
+  unvetted: 'Unvetted Broker',
+};
 
 let cached: Parties | null = null;
 
-/** Allocate the cast, once per process. */
+/**
+ * Resolve the cast.
+ *
+ * On Devnet the parties already exist under the hackathon namespace, so we
+ * compose their ids rather than allocating — allocating on every cold start
+ * would litter a shared validator. Locally, with no namespace configured, we
+ * allocate as before.
+ */
 export async function parties(): Promise<Parties> {
   if (cached) return cached;
-  const [principal, agent, supplierA, supplierB, rogue] = await Promise.all([
+
+  const ns = process.env.WRIT_PARTY_NAMESPACE;
+  if (ns) {
+    cached = {
+      principal: `${PARTY_HINTS.principal}${ns}`,
+      agent: `${PARTY_HINTS.agent}${ns}`,
+      supplier: `${PARTY_HINTS.supplier}${ns}`,
+      unvetted: `${PARTY_HINTS.unvetted}${ns}`,
+    };
+    return cached;
+  }
+
+  const [principal, agent, supplier, unvetted] = await Promise.all([
     ensureParty(PARTY_HINTS.principal),
     ensureParty(PARTY_HINTS.agent),
-    ensureParty(PARTY_HINTS.supplierA),
-    ensureParty(PARTY_HINTS.supplierB),
-    ensureParty(PARTY_HINTS.rogue),
+    ensureParty(PARTY_HINTS.supplier),
+    ensureParty(PARTY_HINTS.unvetted),
   ]);
-  cached = { principal, agent, supplierA, supplierB, rogue };
+  cached = { principal, agent, supplier, unvetted };
   return cached;
 }
 
@@ -82,7 +116,7 @@ export async function ensureMandate(): Promise<Contract<Mandate>> {
     maxTotalSpend: '50000.0',
     perTxCap: '10000.0',
     reservePrice: '45.0',
-    allowedCounterparties: [p.supplierA, p.supplierB],
+    allowedCounterparties: [p.supplier],
     expiry: iso(30 * DAY),
     spentToDate: '0.0',
   });

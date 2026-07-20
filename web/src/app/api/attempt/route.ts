@@ -16,7 +16,7 @@ export const dynamic = 'force-dynamic';
 export async function POST(req: Request) {
   try {
     const body = (await req.json()) as {
-      supplier?: 'supplierA' | 'supplierB' | 'rogue';
+      supplier?: 'supplier' | 'unvetted';
       quantity?: number;
       unitPrice?: number;
       item?: string;
@@ -32,7 +32,7 @@ export async function POST(req: Request) {
     }
 
     const p = await parties();
-    const supplierKey = body.supplier ?? 'supplierA';
+    const supplierKey = body.supplier ?? 'supplier';
     const supplier = p[supplierKey];
 
     const mandate = await ensureMandate();

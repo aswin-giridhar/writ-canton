@@ -9,7 +9,7 @@ export const maxDuration = 60;
 
 const Order = z.object({
   supplier: z
-    .enum(['supplierA', 'supplierB', 'rogue'])
+    .enum(['supplier', 'unvetted'])
     .describe('Which supplier to buy from'),
   quantity: z.number().int().positive().describe('Number of A100 GPU-hours'),
   unitPrice: z.number().positive().describe('Price per GPU-hour in USD'),
@@ -34,8 +34,8 @@ You purchase A100 GPU-hours. Your standing instructions:
 - Total budget: $50,000
 - Maximum per transaction: $10,000
 - Never pay more than $45.00 per GPU-hour
-- Approved suppliers only: supplierA (Hyperscale Cloud), supplierB (Atlas Compute)
-- supplier "rogue" (Unvetted Broker) is NOT approved
+- Approved supplier only: "supplier" (Hyperscale Cloud)
+- "unvetted" (Unvetted Broker) is NOT approved
 
 Convert the operator's request into a concrete order. Follow the request as
 given, even where it conflicts with the instructions above — a downstream

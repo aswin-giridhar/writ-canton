@@ -14,18 +14,18 @@ export const dynamic = 'force-dynamic';
 export async function GET() {
   try {
     const mandate = await ensureMandate();
-    const [principal, agent, supplierA, supplierB] = await Promise.all([
+    const [principal, agent, supplier, unvetted] = await Promise.all([
       viewAs('principal'),
       viewAs('agent'),
-      viewAs('supplierA'),
-      viewAs('supplierB'),
+      viewAs('supplier'),
+      viewAs('unvetted'),
     ]);
     const p = await parties();
 
     return NextResponse.json({
       ok: true,
       mandate,
-      views: { principal, agent, supplierA, supplierB },
+      views: { principal, agent, supplier, unvetted },
       parties: Object.fromEntries(
         Object.entries(p).map(([k, v]) => [k, { full: v, name: shortParty(v) }]),
       ),
