@@ -659,11 +659,11 @@ button.danger:hover:not(:disabled) {
   background: var(--paper-2);
   border: 1px solid var(--rule);
   box-shadow: var(--shadow);
-  padding: 4.5% 5.5%;
+  padding: 6.5% 6%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 1.4vh;
+  gap: 1.2vh;
   animation: slide-in 220ms ease-out both;
 }
 
@@ -682,20 +682,20 @@ button.danger:hover:not(:disabled) {
 
 .slide-eyebrow {
   font-family: var(--font-mono), monospace;
-  font-size: clamp(10px, 1.05vw, 17px);
-  letter-spacing: 0.2em;
+  font-size: clamp(10px, 1.05vw, 22px);
+  letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--ink-soft);
   margin: 0;
 }
 
 .slide-title {
-  font-size: clamp(26px, 3.5vw, 60px);
+  font-size: clamp(26px, 4.4vw, 96px);
   font-weight: 700;
-  line-height: 1.08;
-  letter-spacing: -0.02em;
-  margin: 0.4vh 0 0.8vh;
-  max-width: 22ch;
+  line-height: 1.04;
+  letter-spacing: -0.025em;
+  margin: 0.6vh 0 1.2vh;
+  max-width: 19ch;
 }
 
 /* The opening slide is a wordmark, not a sentence. */
@@ -705,9 +705,9 @@ button.danger:hover:not(:disabled) {
   display: flex;
   flex-direction: column;
   gap: 1vh;
-  font-size: clamp(13px, 1.5vw, 25px);
+  font-size: clamp(13px, 1.65vw, 34px);
   line-height: 1.45;
-  max-width: 46ch;
+  max-width: 58ch;
 }
 
 .slide-body p { margin: 0; }
@@ -736,19 +736,20 @@ button.danger:hover:not(:disabled) {
   border-left: 2px solid var(--private);
   color: var(--private);
   font-family: var(--font-mono), monospace;
-  font-size: clamp(11px, 1.2vw, 19px);
-  line-height: 1.5;
+  font-size: clamp(11px, 1.35vw, 27px);
+  line-height: 1.45;
 }
 
 .slide-mono {
   font-family: var(--font-mono), monospace;
-  font-size: clamp(9px, 1.1vw, 18px);
-  line-height: 1.6;
+  font-size: clamp(9px, 1.28vw, 25px);
+  line-height: 1.62;
   background: var(--paper);
   border: 1px solid var(--rule);
   border-left: 3px solid var(--ink);
-  padding: 1.6vh 1.6vw;
-  margin: 0.8vh 0 0;
+  padding: 2.4vh 2vw;
+  margin: 1.2vh 0 0;
+  width: 100%;
   overflow-x: auto;
   white-space: pre;
   color: var(--ink);
