@@ -654,7 +654,8 @@ button.danger:hover:not(:disabled) {
 }
 
 .slide {
-  width: min(1600px, 92vw);
+  container-type: inline-size;
+  width: min(1500px, 88vw);
   aspect-ratio: 16 / 9;
   background: var(--paper-2);
   border: 1px solid var(--rule);
@@ -682,7 +683,7 @@ button.danger:hover:not(:disabled) {
 
 .slide-eyebrow {
   font-family: var(--font-mono), monospace;
-  font-size: clamp(10px, 1.05vw, 22px);
+  font-size: clamp(9px, 1.15cqw, 16px);
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--ink-soft);
@@ -690,9 +691,9 @@ button.danger:hover:not(:disabled) {
 }
 
 .slide-title {
-  font-size: clamp(26px, 4.4vw, 96px);
+  font-size: clamp(24px, 5.2cqw, 78px);
   font-weight: 700;
-  line-height: 1.04;
+  line-height: 1.05;
   letter-spacing: -0.025em;
   margin: 0.6vh 0 1.2vh;
   max-width: 19ch;
@@ -705,8 +706,8 @@ button.danger:hover:not(:disabled) {
   display: flex;
   flex-direction: column;
   gap: 1vh;
-  font-size: clamp(13px, 1.65vw, 34px);
-  line-height: 1.45;
+  font-size: clamp(12px, 1.95cqw, 27px);
+  line-height: 1.5;
   max-width: 58ch;
 }
 
@@ -736,13 +737,13 @@ button.danger:hover:not(:disabled) {
   border-left: 2px solid var(--private);
   color: var(--private);
   font-family: var(--font-mono), monospace;
-  font-size: clamp(11px, 1.35vw, 27px);
-  line-height: 1.45;
+  font-size: clamp(10px, 1.55cqw, 21px);
+  line-height: 1.5;
 }
 
 .slide-mono {
   font-family: var(--font-mono), monospace;
-  font-size: clamp(9px, 1.28vw, 25px);
+  font-size: clamp(8px, 1.5cqw, 20px);
   line-height: 1.62;
   background: var(--paper);
   border: 1px solid var(--rule);
@@ -852,7 +853,7 @@ body:has(.deck.bare) {
   align-items: baseline;
   gap: 1.2em;
   font-family: var(--font-mono), monospace;
-  font-size: clamp(9px, 0.85vw, 16px);
+  font-size: clamp(8px, 0.95cqw, 13px);
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--rule-strong);
@@ -898,7 +899,7 @@ body:has(.deck.bare) {
   border: 5px double var(--refuse);
   color: var(--refuse);
   font-weight: 700;
-  font-size: clamp(18px, 2.6vw, 54px);
+  font-size: clamp(16px, 3.2cqw, 46px);
   letter-spacing: 0.22em;
   text-transform: uppercase;
   padding: 0.24em 0.5em 0.2em;
