@@ -11,3 +11,13 @@ build/
 log/
 *.log
 .playwright-mcp/
+
+# Shared hackathon credential — never publish
+docs/*.pdf
+.env.devnet
+
+# Credentials and shared secrets — never publish
+docs/*.pdf
+docs/**/*.pdf
+.env.devnet
+*.token
