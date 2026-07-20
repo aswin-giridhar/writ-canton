@@ -290,8 +290,32 @@ export default function Page() {
                     price, so it cannot price against it.
                   </p>
                 </>
+              ) : error ? (
+                /*
+                 * No ledger reachable. Say what is actually true and how to
+                 * see it working, rather than showing a spinner that never
+                 * resolves or faking contract data to look alive — faking it
+                 * would invert the one claim this project makes.
+                 */
+                <div className="offline">
+                  <p className="offline-head">No ledger connected</p>
+                  <p>
+                    This deployment has no validator to talk to yet. Writ is built
+                    against Canton’s JSON Ledger API v2; pointing it at a
+                    participant is three environment variables.
+                  </p>
+                  <p>To see it running, with a ledger enforcing every bound:</p>
+                  <pre>
+{`git clone https://github.com/aswin-giridhar/writ-canton
+cd writ-canton/daml/mandate-model && daml build
+daml sandbox --json-api-port 7575 \\
+  --dar .daml/dist/mandate-model-0.1.0.dar
+cd ../../web && npm install && npm run dev`}
+                  </pre>
+                  <p className="offline-detail">{error}</p>
+                </div>
               ) : (
-                <div className="empty">{error ?? 'Reading mandate from ledger…'}</div>
+                <div className="empty">Reading mandate from ledger…</div>
               )}
             </div>
           </section>

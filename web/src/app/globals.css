@@ -591,3 +591,45 @@ button.danger:hover:not(:disabled) {
   border-left-color: var(--private);
   color: var(--private);
 }
+
+/* ---- offline state ------------------------------------------------------ */
+
+/* Shown when no participant is reachable. Deliberately explanatory: a judge
+   opening the hosted link should learn what the project is and how to run it,
+   not stare at a failed fetch. */
+.offline {
+  font-family: var(--font-mono), monospace;
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+}
+
+.offline p {
+  margin: 0 0 10px;
+}
+
+.offline-head {
+  font-weight: 600;
+  color: var(--refuse);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-size: 11px;
+}
+
+.offline pre {
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-left: 2px solid var(--private);
+  padding: 10px 11px;
+  font-size: 11px;
+  line-height: 1.55;
+  overflow-x: auto;
+  margin: 0 0 10px;
+  color: var(--ink);
+}
+
+.offline-detail {
+  font-size: 10.5px;
+  color: var(--rule-strong);
+  word-break: break-word;
+}
