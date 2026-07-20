@@ -544,3 +544,50 @@ button.danger:hover:not(:disabled) {
   flex-wrap: wrap;
   gap: 6px 18px;
 }
+
+/* ---- agent console ------------------------------------------------------ */
+
+.instruction-input {
+  width: 100%;
+  font-family: var(--font-mono), monospace;
+  font-size: 12.5px;
+  line-height: 1.55;
+  padding: 10px 11px;
+  border: 1px solid var(--rule-strong);
+  background: var(--paper-2);
+  color: var(--ink);
+  border-radius: 0;
+  resize: vertical;
+}
+
+.instruction-input:focus-visible {
+  outline: 2px solid var(--private);
+  outline-offset: 1px;
+}
+
+.agent-down {
+  font-family: var(--font-mono), monospace;
+  font-size: 11.5px;
+  color: var(--refuse);
+  border-left: 2px solid var(--refuse);
+  padding-left: 10px;
+  margin: 12px 0 0;
+}
+
+/* What the operator asked for, and what the model chose to do about it.
+   Kept visually distinct from the ledger's verdict below them: these are
+   claims, the verdict is fact. */
+.instruction,
+.rationale {
+  margin-bottom: 8px;
+  padding-left: 9px;
+  border-left: 2px solid var(--rule);
+  color: var(--ink-soft);
+  font-size: 11.5px;
+  line-height: 1.5;
+}
+
+.rationale {
+  border-left-color: var(--private);
+  color: var(--private);
+}
