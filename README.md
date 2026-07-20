@@ -120,6 +120,15 @@ Two things cost real time and are worth writing down:
 - **The `daml` assistant is deprecated** in favour of `dpm` (Digital Asset Package
   Manager), and `daml ledger …` no longer exists — deployment goes through the JSON API,
   the Canton console, or Seaport.
+- **Queries filter by package *name*, commands take the package *id*.** A
+  `TemplateFilter` built from a package id returns zero rows with HTTP 200 while the
+  contracts plainly exist — the create succeeded and nothing appears. Devnet resolves
+  filters as `#mandate-model:Writ.Mandate:Mandate` so a contract created by v1 of a
+  package still matches a filter written against v2. Measured: package-id form matched
+  0, package-name form matched 1, same contract.
+- **Access tokens live 8 hours.** A token pasted into an environment variable works on
+  the day you set it and is dead by the time anyone evaluates the link. The app runs the
+  client-credentials grant itself and re-mints at 80% of lifetime.
 
 ## Tests
 
@@ -160,21 +169,42 @@ Environment:
 | `LEDGER_BASE_URL` | Participant JSON API (default `http://localhost:7575`) |
 | `LEDGER_TOKEN` | Bearer token — required on Devnet, unused locally |
 | `MANDATE_PACKAGE_ID` | Package id of the deployed DAR |
-| `AI_GATEWAY_API_KEY` | Optional; OIDC is used automatically on Vercel |
+| `MANDATE_PACKAGE_NAME` | Daml package *name* — used for query filters (see below) |
+| `WRIT_PARTY_NAMESPACE` | `::<fingerprint>` of the validator's party namespace |
+| `OIDC_TOKEN_URL` / `OIDC_CLIENT_ID` / `OIDC_CLIENT_SECRET` | Client-credentials grant; the app mints and refreshes its own token |
+| `ANTHROPIC_API_KEY` | Optional. Without it the agent panel reports itself offline and the direct controls still exercise the ledger. |
 
 Pointing at the Canton Devnet validator is a change of these variables, not a change of
 code.
 
-## Status
+## Deployed on Canton Devnet
 
-The Daml model, the tests, the ledger client, and the interface are complete and run
-against a live Canton 3.4.11 participant.
+Live on the shared FiveNorth Devnet validator:
 
-Deployment to **Canton Devnet** requires a validator credential that only a hackathon
-organizer can issue — Seaport's shared `5n sandbox` validator is provisioned per
-hackathon team, and per the official guide there is no self-service path onto it. The
-allowlist for self-hosted validators is documented at 2–7 days. That request is
-outstanding; the deploy itself is a configuration change.
+| | |
+|---|---|
+| Ledger API | `ledger-api.validator.devnet.sandbox.fivenorth.io` |
+| Package id | `a4f6a9b04d0bbbcaf756e21eea0818013213d35547d38708ab21e541b3fb7671` |
+| Parties | `writ-northwind`, `writ-agent`, `writ-hyperscale`, `writ-unvetted` |
+| Live app | https://web-one-lyart-21.vercel.app |
+
+Enforcement exercised on-ledger — one purchase settled, three refused:
+
+```
+within bounds          $ 8,400   SETTLED
+over per-tx cap        $12,000   REFUSED — amount 12000.0 exceeds per-transaction cap 10000.0
+above reserve price    $ 5,000   REFUSED — unit price 50.0 exceeds reserve price 45.0
+unvetted counterparty  $ 4,000   REFUSED — counterparty not on allowlist
+```
+
+`scripts/deploy-devnet.sh` performs the whole deployment: token grant, DAR upload,
+vetting check, and the environment the web app needs.
+
+**Four parties, not five.** `writ-unvetted` is both the rejected counterparty and the
+uninvolved observer who sees nothing. The shared validator authenticates every team
+through one ledger user whose rights are finite — another team hit
+`TOO_MANY_USER_RIGHTS` at six parties — so the cast was trimmed to spend fewer of them.
+Both demonstrations still hold.
 
 ## Licence
 

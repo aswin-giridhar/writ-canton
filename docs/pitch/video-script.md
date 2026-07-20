@@ -2,9 +2,9 @@
 
 Total: **2:55**. Timings are generous; if you run long, cut from §4, never from §3.
 
-Record the screen at 1440×900 or larger. Have the app open, the mandate fresh
-(restart the sandbox first so the envelope starts empty), and the browser zoomed
-enough that the rejection text is readable in a compressed video.
+Record the screen at 1440×900 or larger. The app is live on **Canton Devnet** and the
+mandate has been reissued fresh ($0 of $50,000), so the envelope starts empty. Zoom the
+browser enough that the rejection text is readable after compression.
 
 ---
 
@@ -31,7 +31,7 @@ enough that the rejection text is readable in a compressed video.
 
 > Writ moves that authority off the agent and onto a ledger.
 >
-> This is a mandate. It's a Daml contract on Canton. Total budget, per-transaction
+> This is a mandate. It's a Daml contract running on Canton Devnet right now. Total budget, per-transaction
 > cap, a reserve price, approved suppliers, an expiry.
 >
 > The agent can *attempt* anything. The ledger decides what settles. And the
@@ -104,8 +104,9 @@ enough that the rejection text is readable in a compressed video.
 
 ## Recording checklist
 
-- [ ] Restart the sandbox so `spentToDate` is $0 and the envelope reads empty
-- [ ] Confirm the AI Gateway is funded, or §3 falls back to the direct-order controls
+- [ ] Envelope reads $0 of $50,000 (mandate was reissued on Devnet — reissue again if you rehearse)
+- [ ] `ANTHROPIC_API_KEY` is set, or §3 falls back to the direct-order controls
+- [ ] Say "Canton Devnet" out loud at least once — it's a judging requirement
 - [ ] Zoom the browser to ~125% — the rejection text must be legible after compression
 - [ ] Do one dry run end-to-end before recording; the first agent call is slow to warm
 - [ ] Record system audio off, mic on

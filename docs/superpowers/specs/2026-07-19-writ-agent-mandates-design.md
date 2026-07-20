@@ -109,15 +109,34 @@ hours to a stale tutorial.
 
 ### AI agents
 
-Claude via **Vercel AI Gateway** (no raw key management, built-in observability).
+Claude Opus 4.8 via the **Anthropic SDK** (`@anthropic-ai/sdk`), using
+`messages.parse()` with a Zod schema so the model's order is validated structurally
+rather than parsed out of prose. Adaptive thinking is on — the agent is reasoning about
+an adversarial instruction, which is the case it helps with. Without
+`ANTHROPIC_API_KEY` the route returns 503 and the UI says the agent is offline; it never
+fabricates an agent decision.
 
-## Deployment
+## Deployment — done
 
-- Local iteration: `dpm sandbox` (`daml` assistant is deprecated → `dpm` 1.0.21).
-- Production: Seaport shared Devnet validator `5n sandbox` — no self-hosted validator,
-  no onboarding secret, no IP allowlisting.
-- Gating step: an organizer must add the project Party ID to the hackathon org. This is
-  the only human-blocked dependency and was initiated first.
+Live on the shared FiveNorth Canton Devnet validator
+(`ledger-api.validator.devnet.sandbox.fivenorth.io`), package
+`a4f6a9b04d0bbbcaf756e21eea0818013213d35547d38708ab21e541b3fb7671`, four parties under
+the hackathon namespace. App at https://web-one-lyart-21.vercel.app.
+
+Three things Devnet required that a local sandbox did not:
+
+1. **Query filters resolve by package name**, not package id. The package-id form
+   returns zero rows with HTTP 200 while the contracts exist — a create succeeds and
+   nothing appears. Commands still take the package id, so the two halves of the API
+   disagree.
+2. **CanActAs must be granted per party** on the shared ledger user. Several other teams
+   are stuck on the 403 this produces.
+3. **Tokens expire in 8 hours**, so the app runs the client-credentials grant itself and
+   re-mints at 80% of lifetime rather than holding a pasted token.
+
+Party count was cut from five to four: `unvetted` serves as both the rejected
+counterparty and the blind observer, because user rights on the shared validator are a
+finite resource.
 
 ## Testing
 
@@ -145,11 +164,11 @@ The Daml model is built and tested first, before any AI work begins.
 
 ## Deliverables
 
-- [ ] Public repository
-- [ ] Presentation deck
-- [ ] 3-minute video pitch with demo
-- [ ] Link to live product (Vercel)
-- [ ] Contracts live on Canton Devnet (not LocalNet/sandbox)
+- [x] Public repository — github.com/aswin-giridhar/writ-canton
+- [x] Presentation deck — `docs/pitch/deck.md`
+- [ ] 3-minute video pitch with demo — script at `docs/pitch/video-script.md`
+- [x] Link to live product — https://web-one-lyart-21.vercel.app
+- [x] Contracts live on Canton Devnet (not LocalNet/sandbox)
 
 ## Time budget
 

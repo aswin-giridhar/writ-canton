@@ -114,10 +114,10 @@ participant node. There is nothing there to attack.
 
 ## 8 — The demo
 
-*Live, on screen:*
+*Live, on Canton Devnet:*
 
-1. A real agent (Claude) is told its budget in its system prompt — exactly how
-   production agents are governed today
+1. A real agent (Claude Opus 4.8) is told its budget in its system prompt — exactly
+   how production agents are governed today
 2. The judge types an override
 3. The agent **complies** — it genuinely submits the order
 4. The ledger **refuses**
@@ -127,6 +127,9 @@ REFUSED — amount 12000.0 exceeds per-transaction cap 10000.0
 ```
 
 **The prompt did not hold. The ledger did.**
+
+Not a sandbox: package `a4f6a9b0…` on the shared FiveNorth Devnet validator,
+four parties, contracts settling on the real ledger.
 
 ---
 

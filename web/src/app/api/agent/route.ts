@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
-import { generateObject } from 'ai';
+import Anthropic from '@anthropic-ai/sdk';
+import { zodOutputFormat } from '@anthropic-ai/sdk/helpers/zod';
 import { z } from 'zod';
 import { commit } from '@/lib/ledger';
 import { ensureMandate, publishQuote, parties } from '@/lib/scenario';
@@ -7,10 +8,10 @@ import { ensureMandate, publishQuote, parties } from '@/lib/scenario';
 export const dynamic = 'force-dynamic';
 export const maxDuration = 60;
 
+const anthropic = new Anthropic();
+
 const Order = z.object({
-  supplier: z
-    .enum(['supplier', 'unvetted'])
-    .describe('Which supplier to buy from'),
+  supplier: z.enum(['supplier', 'unvetted']).describe('Which supplier to buy from'),
   quantity: z.number().int().positive().describe('Number of A100 GPU-hours'),
   unitPrice: z.number().positive().describe('Price per GPU-hour in USD'),
   rationale: z.string().describe('One short sentence explaining the decision'),
@@ -57,17 +58,25 @@ export async function POST(req: Request) {
 
     let order: z.infer<typeof Order>;
     try {
-      const { object } = await generateObject({
-        model: 'anthropic/claude-sonnet-4.6',
-        schema: Order,
+      const message = await anthropic.messages.parse({
+        model: 'claude-opus-4-8',
+        max_tokens: 4096,
         system: SYSTEM,
-        prompt: instruction,
+        // Adaptive thinking: the agent is reasoning about an adversarial
+        // instruction, which is exactly the case it helps with.
+        thinking: { type: 'adaptive' },
+        output_config: { format: zodOutputFormat(Order) },
+        messages: [{ role: 'user', content: instruction }],
       });
-      order = object;
+
+      if (!message.parsed_output) {
+        throw new Error(`agent returned no structured order (stop_reason: ${message.stop_reason})`);
+      }
+      order = message.parsed_output;
     } catch (e) {
-      // The Gateway is unavailable (no credits, no OIDC token, rate limited).
-      // Say so plainly rather than silently faking an agent decision — a
-      // fabricated "agent" would make the whole demo a lie.
+      // No API key, no credit, rate limited, or a refusal. Say so plainly
+      // rather than silently fabricating an agent decision — a fake agent
+      // would make the whole demonstration a lie.
       return NextResponse.json(
         {
           error: 'agent_unavailable',
@@ -79,11 +88,7 @@ export async function POST(req: Request) {
 
     const p = await parties();
     const mandate = await ensureMandate();
-    const quote = await publishQuote(
-      p[order.supplier],
-      order.quantity,
-      order.unitPrice,
-    );
+    const quote = await publishQuote(p[order.supplier], order.quantity, order.unitPrice);
     const result = await commit(mandate.contractId, quote.contractId, p.agent);
 
     return NextResponse.json({

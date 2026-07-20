@@ -178,7 +178,7 @@ export default function Page() {
         if (d.error) {
           setAgentDown(
             d.error === 'agent_unavailable'
-              ? 'Agent offline — the model gateway is not funded. The controls below still exercise the same ledger.'
+              ? 'Agent offline — no Anthropic API key configured. The controls below still exercise the same ledger.'
               : String(d.error),
           );
           return;
@@ -421,7 +421,7 @@ cd ../../web && npm install && npm run dev`}
           <section className="panel">
             <div className="panel-head">
               <h2 className="panel-title">Say anything to the agent</h2>
-              <span className="eyebrow">Claude · live</span>
+              <span className="eyebrow">Claude Opus 4.8</span>
             </div>
             <div className="panel-body">
               <p className="hint">
