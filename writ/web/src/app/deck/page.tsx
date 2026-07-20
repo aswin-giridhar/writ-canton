@@ -40,6 +40,7 @@ export default function Deck() {
   return (
     <main className={`deck${bare ? ' bare' : ''}`}>
       <article className="slide" key={i}>
+        {i === 0 && <div className="slide-stamp">Refused</div>}
         <p className="slide-eyebrow">{s.eyebrow}</p>
         <h1 className="slide-title">{s.title}</h1>
 
@@ -59,7 +60,18 @@ export default function Deck() {
           </div>
         )}
 
-        {s.mono && <pre className="slide-mono">{s.mono}</pre>}
+        {s.mono && <pre className="slide-mono">{highlight(s.mono)}</pre>}
+
+        <footer className="slide-foot">
+          <span className="slide-foot-mark">Writ</span>
+          <span className="slide-foot-meta">Canton Devnet · live</span>
+          <span className="slide-foot-num">
+            {String(i + 1).padStart(2, '0')}
+          </span>
+        </footer>
+        <div className="slide-progress" aria-hidden>
+          <div style={{ width: `${((i + 1) / SLIDES.length) * 100}%` }} />
+        </div>
       </article>
 
       {!bare && (
@@ -84,6 +96,32 @@ export default function Deck() {
       )}
     </main>
   );
+}
+
+/**
+ * Colour the verdicts in a mono block.
+ *
+ * The refusal is the argument the whole deck is making, so it carries the same
+ * oxblood the app's stamp uses. Settlements get the bottle green. Everything
+ * else stays ink — the point is that two words stand out, not that the block
+ * becomes a syntax-highlighted rainbow.
+ */
+function highlight(block: string) {
+  return block.split('\n').map((line, n) => {
+    const cls = /REFUSED/.test(line)
+      ? 'is-refused'
+      : /SETTLED|\bok\b/.test(line)
+        ? 'is-settled'
+        : /^(OPERATOR|AGENT|LEDGER|PARTY)/.test(line)
+          ? 'is-label'
+          : undefined;
+    return (
+      <span className={cls} key={n}>
+        {line}
+        {'\n'}
+      </span>
+    );
+  });
 }
 
 /** Minimal `**bold**` support so slide copy can carry emphasis. */
