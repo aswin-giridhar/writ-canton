@@ -12,6 +12,7 @@ log/
 *.pdf
 .env
 .env*.local
+!writ/web/.env.example
 .env.devnet
 *.token
 .vercel
